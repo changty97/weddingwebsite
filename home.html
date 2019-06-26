@@ -46,6 +46,7 @@
         top: 0px;
         transition: .5s;
         text-align: center;
+        z-index: 500;
     }
 
     .navbar ul li {
@@ -67,10 +68,6 @@
     .carousel-inner img {
         width: 100%;
         height: 100%;
-    }
-
-    body {
-        background-color: #474e5d;
     }
 
 /* The actual timeline (the vertical ruler) */
@@ -100,12 +97,6 @@
     width: 50%;
     }
 
-    /* .conatiner-outside {
-        padding: 15px 45px;
-        position: relative;
-        background-color: black;
-        width: 50%;
-    } */
 
 /* The circles on the timeline */
     .container::after {
@@ -167,10 +158,12 @@
 /* The actual content */
     .content {
     padding: 20px 30px;
-    background-color: white;
+    background-color: #474e5d;
     position: relative;
     border-radius: 6px;
-    font-family: Brush Script MT, Brush Script Std, cursive; text-align: center;
+    font-family: Brush Script MT, Brush Script Std, cursive; 
+    text-align: center;
+    color: black;
     }
 
 /* Media queries - Responsive timeline on screens less than 600px wide */
@@ -212,9 +205,9 @@
             <div class="navbar" id='nav'>
                 <ul>
                     <li><a href="home.html" style="font-size: 40px;">Home</a></li>
-                    <li><a href="#" style="font-size: 40px;">Pictures</a></li>
+                    <li><a href="#" style="font-size: 40px;">Engagment</a></li>
                     <li><a href="#" style="font-size: 40px;">Venue</a></li>
-                    <li><a href="#" style="font-size: 40px;">Contacts</a></li>
+                    <li><a href="#" style="font-size: 40px;">Hotels</a></li>
                 </ul>
             </div>
         </div>
@@ -223,13 +216,16 @@
                 var nav = document.getElementById('nav');
                 window.onscroll = function() {
                     if(window.pageYOffset > 900) {
-                        nav.style.background = "#D4AF37";
+                        nav.style.background = "#F8F1F1";
                     }
                     else {
                         nav.style.background = "transparent";
                     }
                 }
             </script>
+        <h1 style="color: black; font-family: Brush Script MT, Brush Script Std, cursive; text-align: center; font-size: 100px;">We Are Getting Hitched!</h1>
+        <h2 style="color: black; font-family: Brush Script MT, Brush Script Std, cursive; text-align: center; font-size: 50px;">The date is Septemeber 26th, 2020 and we would like you to be part of it.</h2>  
+        <br>
         <h1 style="color: black; font-family: Brush Script MT, Brush Script Std, cursive; text-align: center; font-size: 100px;">How it Started!</h1>
         <br>
         <div class="timeline">
@@ -273,15 +269,15 @@
               </div>
 
               <br>
-              <h1 style="color: black; font-family: Brush Script MT, Brush Script Std, cursive; text-align: center; font-size: 100px;">Pictures</h1>
+              <h1 style="color: black; font-family: Brush Script MT, Brush Script Std, cursive; text-align: center; font-size: 100px;">Engagment Photos</h1>
               <br>
-
+              
               <br>
               <h1 style="color: black; font-family: Brush Script MT, Brush Script Std, cursive; text-align: center; font-size: 100px;">Venue</h1>
               <br>
-
+                http://www.loneoaklonghorns.com/
               <br>
-              <h1 style="color: black; font-family: Brush Script MT, Brush Script Std, cursive; text-align: center; font-size: 100px;">Contacts</h1>
+              <h1 style="color: black; font-family: Brush Script MT, Brush Script Std, cursive; text-align: center; font-size: 100px;">Hotels Near By</h1>
               <br>
 
 </body>
