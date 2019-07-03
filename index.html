@@ -28,22 +28,68 @@
     <section id="nav" class="navigation">
       <header id="head" style="border-bottom: 1px solid rgba(255, 255, 255, 0.2); padding: 50px 0px;">
         <div class="header-content">
-          <div class="header-nav">
+          <div id="header" onclick="menuButton()" class="header-nav">
               <nav>
-                  <ul class="navbar">
-                      <li><a href="home.html" style="text-decoration: none;">Home</a></li>
+                  <ul class="primary-nav">
+                      <li><a href="index.html" style="text-decoration: none;">Home</a></li>
                       <li><a href="#timeline" style="text-decoration: none;">Timeline</a></li>
                       <li><a href="#eng-pics" style="text-decoration: none;">Engagment</a></li>
                       <li><a href="#venue" style="text-decoration: none;">Venue</a></li>
                       <li><a href="#hotels" style="text-decoration: none;">Hotels</a></li>
                   </ul>
-                  <ul class="member-actions" id="rsvp" style="top: 41px;">
+                  <ul id="rsvp" class="member-actions" style="top: 41px;">
                     <li><a href="#rsvp" class="btn-white btn-small" style="text-decoration: none;">RSVP</a></li>
                   </ul>
               </nav>
           </div>
+          <div id="rsvpForm"></div>
           <div class="navicon" id="navicon" style="top: 48px;">
-              <a class="nav-toggle" href="#"><span></span></a>
+              <a id="menu" onclick="menu()" class="nav-toggle" href="#"><span></span></a>
+              <script>
+                function menu() {
+                  var menu = document.getElementById('menu');
+                  var header = document.getElementById('header');
+                  if(menu.className == 'nav-toggle') 
+                  {
+                    menu.className = "nav-toggle active";
+                    header.className = "header-nav open";
+                  }
+                  else if(window.onclick == menu())
+                  {
+                    menu.className = "nav-toggle";
+                  }
+                }
+
+                function menuButton() {
+                  var menu = document.getElementById('menu');
+                  var header = document.getElementById('header');
+                  if(header.className == 'header-nav open')
+                  {
+                    header.className = "header-nav";
+                    menu.className = "nav-toggle";
+                  }
+                }
+
+                  var rsvp = document.getElementById('rsvp');
+                  var rsvpForm = document.getElementById('rsvpForm');
+                  //var span = document.getElementById('close')[0];
+                  
+                  rsvp.onclick = function() {
+                    //rsvpPop.style.display = "block";
+                    rsvpForm.innerHTML = '<div id="rsvpPop" class="top"></div><div class="form"><div class ="info"><h1 class="head1">RSVP</h1><h2 class="head2">for the wedding of</h2><h1 class="head1">Caley & Tyler</h1><p class= "line">________________________________________</p><h2 class="head2">The Details</h2><p class="details">Saturday, September 26, 2020</p><p class="details">5:00 PM</p><br><h2 class="head2">Ceremony & Reception</h2><p class="details">8031 Highway 70 Marysville, California 95901</p><p class= "line">________________________________________</p><input type="text" placeholder="Name"><input type="number" placeholder="# of Guests"></div><button class ="accept">Accept</button><button class ="decline">Decline</button></div>';
+                  }
+
+                  // span.onclick = function() {
+                  //   rsvpPop.style.display = "none";
+                  // }
+
+                  // window.onclick = function(event) {
+                  //   if(event.target == rsvpForm)
+                  //   {
+                  //     rsvpForm.innerHtml = '';
+                  //   }
+                  // }
+              </script>
           </div>
         </div>
       </header>
@@ -59,7 +105,7 @@
                 window.onscroll = function() {
                     if(window.pageYOffset > 700) {
                         nav.className = "navigation fixed";
-                        nav.style.backgroundColor = "rgba(38, 54, 83, 0.88)";
+                        nav.style.backgroundColor = "rgba(216, 196, 163, 0.63)"; //rgba(239, 213, 186, 0.88)
                         head.style.borderBottom = "none";
                         head.style.padding = "35px 0px";
                         rsvp.style.top = "20px";
@@ -75,6 +121,16 @@
                     }
                 }
 
+                
+                // var menu = document.getElementById('menu');
+                // var header = document.getElementById('header');
+                // window.onclick = function () {
+                //   if(menu == 'menu')
+                //   {
+                //     menu.className = "nav-toggle active";
+                //   }
+                // }
+
                 // var moblie = document.getElementsByClassName('header-nav');
                 // void function() {
                 //   if(window.pageXOffset > 900) {
@@ -86,8 +142,26 @@
       <div class="conatiner-invite">
         <div class="row">
           <div class="col-md-12 text-center">
-              <h1>We Are Getting Hitched!</h1>
-              <p>The date is Septemeber 26th, 2020 and we would like you to be part of it.</p>  
+              <h1>We're Getting Hitched!</h1>
+              <p>The date is Septemeber 26th, 2020 and we would like you to be part of it.</p> 
+              <h1><b>Countdown</b></h1>
+              <script>
+                var today = new Date();
+                var BigDay = new Date("September 26, 2020");
+                var msPerDay = 24 * 60 * 60 * 1000;
+                var timeLeft = (BigDay.getTime() - today.getTime());
+                var e_daysLeft = timeLeft / msPerDay;
+                var daysLeft = Math.floor(e_daysLeft);
+                var yearsLeft = 0;
+                if (daysLeft > 365) {
+                  yearsLeft = Math.floor(daysLeft / 365);
+                  daysLeft = daysLeft % 365;
+                }
+                var e_hrsLeft = (e_daysLeft - daysLeft) * 24;
+                var hrsLeft = Math.floor(e_hrsLeft);
+                var minsLeft = Math.floor((e_hrsLeft - hrsLeft) * 60);
+                document.write("<h1><b>" + yearsLeft + " years " + daysLeft + " days " + hrsLeft + " hours " + minsLeft + " minutes</b></h1>");
+              </script>
               <hr>
           </div>
         </div>
@@ -288,7 +362,7 @@
             
         <section id="hotels" class="section-padding">
           <h1 style="text-align: center;">Hotels Near By</h1>
-          <h3 style="text-align: center;">Note: Hotels are most expense during the Fall season.</h3>
+          <h3 style="text-align: center;">Note: Hotels are most expensive during the Fall season.</h3>
         </section>
     
         <footer>

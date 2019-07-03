@@ -102,6 +102,12 @@ ul {
     }
 }
 
+/* @media (min-width: 992px) {
+    .left {
+        left: 0;
+    }
+} */
+
 @media (min-width:1200px) {
     .conatiner-invite {
         width:1170px
