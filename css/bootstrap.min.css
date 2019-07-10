@@ -74,6 +74,14 @@ ul {
     margin-left: auto;
 }
 
+@media (max-width: 650px) {
+    .map {
+        width: 340px;
+        height: 280px;
+    }
+}
+
+
 @media (min-width: 768px) {
     .conatiner-invite {
         width: 750px;

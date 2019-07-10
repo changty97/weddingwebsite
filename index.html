@@ -26,8 +26,9 @@
 <body>
   <section class="hero">
     <section id="nav" class="navigation">
-      <header id="head" style="border-bottom: 1px solid rgba(255, 255, 255, 0.2); padding: 50px 0px;">
+      <header id="head" style="border-bottom: 1px solid rgba(255, 255, 255, 0.2); padding: 30px 0px;">
         <div class="header-content">
+          <img src="./images/weddinglogo.png" style="width: 20%; height: 10%;">
           <div id="header" onclick="menuButton()" class="header-nav">
               <nav>
                   <ul class="primary-nav">
@@ -42,7 +43,9 @@
                   </ul>
               </nav>
           </div>
-          <div id="rsvpForm"></div>
+          <div id="rsvpForm">
+             
+          </div>
           <div class="navicon" id="navicon" style="top: 48px;">
               <a id="menu" onclick="menu()" class="nav-toggle" href="#"><span></span></a>
               <script>
@@ -75,20 +78,15 @@
                   //var span = document.getElementById('close')[0];
                   
                   rsvp.onclick = function() {
-                    //rsvpPop.style.display = "block";
-                    rsvpForm.innerHTML = '<div id="rsvpPop" class="top"></div><div class="form"><div class ="info"><h1 class="head1">RSVP</h1><h2 class="head2">for the wedding of</h2><h1 class="head1">Caley & Tyler</h1><p class= "line">________________________________________</p><h2 class="head2">The Details</h2><p class="details">Saturday, September 26, 2020</p><p class="details">5:00 PM</p><br><h2 class="head2">Ceremony & Reception</h2><p class="details">8031 Highway 70 Marysville, California 95901</p><p class= "line">________________________________________</p><input type="text" placeholder="Name"><input type="number" placeholder="# of Guests"></div><button class ="accept">Accept</button><button class ="decline">Decline</button></div>';
+                    if(rsvpForm.innerHTML == '')
+                    {
+                      rsvpForm.innerHTML = '<div id="rsvpPop" class="top"></div><div class="form"><div class ="info"><h1 class="head1">RSVP</h1><h2 class="head2">for the wedding of</h2><h1 class="head1">Caley & Tyler</h1><p class= "line">________________________________________</p><h2 class="head2">The Details</h2><p class="details">Saturday, September 26, 2020</p><p class="details">5:00 PM</p><br><h2 class="head2">Ceremony & Reception</h2><p class="details">8031 Highway 70 Marysville, California 95901</p><p class= "line">________________________________________</p><input type="text" placeholder="Name"><input type="number" placeholder="# of Guests"></div><button id="accept" class ="accept">Accept</button><button class ="decline">Decline</button></div>';
+                    }
+                    else
+                    {
+                      rsvpForm.innerHTML = '';
+                    }
                   }
-
-                  // span.onclick = function() {
-                  //   rsvpPop.style.display = "none";
-                  // }
-
-                  // window.onclick = function(event) {
-                  //   if(event.target == rsvpForm)
-                  //   {
-                  //     rsvpForm.innerHtml = '';
-                  //   }
-                  // }
               </script>
           </div>
         </div>
@@ -96,7 +94,6 @@
     </section>
   </section>
         
-        <!-- <img class="responsive" src="images/home.JPG"> -->
         <script>
                 var nav = document.getElementById('nav');
                 var head = document.getElementById('head');
@@ -105,9 +102,9 @@
                 window.onscroll = function() {
                     if(window.pageYOffset > 650) {
                         nav.className = "navigation fixed";
-                        nav.style.backgroundColor = "rgba(216, 196, 163, 0.63)"; //rgba(239, 213, 186, 0.88)
+                        nav.style.backgroundColor = "rgba(189, 189, 189, 0.61)"; //rgba(239, 213, 186, 0.88)
                         head.style.borderBottom = "none";
-                        head.style.padding = "35px 0px";
+                        head.style.padding = "15px 0px";
                         rsvp.style.top = "20px";
                         navicon.style.top = "34px";
                     }
@@ -115,28 +112,11 @@
                         nav.style.background = "transparent";
                         nav.style.className = "navigation";
                         head.style.borderBottom = "1px solid rgba(255, 255, 255, 0.2)";
-                        head.style.padding = "50px 0px";
+                        head.style.padding = "30px 0px";
                         rsvp.style.top = "41px";
                         navicon.style.top = "48px";
                     }
                 }
-
-                
-                // var menu = document.getElementById('menu');
-                // var header = document.getElementById('header');
-                // window.onclick = function () {
-                //   if(menu == 'menu')
-                //   {
-                //     menu.className = "nav-toggle active";
-                //   }
-                // }
-
-                // var moblie = document.getElementsByClassName('header-nav');
-                // void function() {
-                //   if(window.pageXOffset > 900) {
-                //     moblie.className = "header-nav open";
-                //   }
-                // }
             </script>
     <section class="section-padding">
       <div class="conatiner-invite">
@@ -172,7 +152,7 @@
         <div class="conatiner-invite">
           <div class="row">
             <div class="col-md-12 text-center">
-                <h1>Timeline</h1>
+                <h1>Our Journey</h1>
             </div>
           </div>
         </div>
@@ -184,42 +164,42 @@
                 <div class="container left conatiner-outside">
                   <div class="content">
                     <h1>How we Met</h1>
-                    <div class="down-arrow floating-arrow"><a onclick="arrow1()" href="#invitation"><i class="fa fa-angle-down"></i></a></div>
+                    <div class="down-arrow floating-arrow"><a onclick="arrow1()" href="#invitation"><i id="arrow1-btn" class="fa fa-angle-down"></i></a></div>
                     <p id="arrow1"></p>
                   </div>
                 </div>
                 <div class="container right">
                   <div class="content">
                     <h1>When I asked her</h1>
-                    <div class="down-arrow floating-arrow"><a onclick="arrow2()" href="#invitation"><i class="fa fa-angle-down"></i></a></div>
+                    <div class="down-arrow floating-arrow"><a onclick="arrow2()" href="#invitation"><i id="arrow2-btn" class="fa fa-angle-down"></i></a></div>
                     <p id="arrow2"></p>
                   </div>
                 </div>
                 <div class="container left">
                     <div class="content">
                       <h1>Popping the Question</h1>
-                      <div class="down-arrow floating-arrow"><a onclick="arrow3()" href="#invitation"><i class="fa fa-angle-down"></i></a></div>
+                      <div class="down-arrow floating-arrow"><a onclick="arrow3()" href="#invitation"><i id="arrow3-btn" class="fa fa-angle-down"></i></a></div>
                       <p id="arrow3"></p>
                     </div>
                   </div>
                 <div class="container right">
                   <div class="content">
                     <h1>Enjoying Life!</h1>
-                    <div class="down-arrow floating-arrow"><a onclick="arrow4()" href="#invitation"><i class="fa fa-angle-down"></i></a></div>
+                    <div class="down-arrow floating-arrow"><a onclick="arrow4()" href="#invitation"><i id="arrow4-btn" class="fa fa-angle-down"></i></a></div>
                     <p id="arrow4"></p>
                   </div>
                 </div>
                 <div class="container left">
                   <div class="content">
                     <h1>When We Tie the Knot</h1>
-                    <div class="down-arrow floating-arrow"><a onclick="arrow5()" href="#invitation"><i class="fa fa-angle-down"></i></a></div>
+                    <div class="down-arrow floating-arrow"><a onclick="arrow5()" href="#invitation"><i id="arrow5-btn" class="fa fa-angle-down"></i></a></div>
                     <p id="arrow5"></p>
                   </div>
                 </div>
                 <div class="container right">
                   <div class="content">
                     <h1>The Future...</h1>
-                    <div class="down-arrow floating-arrow"><a onclick="arrow6()" href="#invitation"><i class="fa fa-angle-down"></i></a></div>
+                    <div class="down-arrow floating-arrow"><a onclick="arrow6()" href="#invitation"><i id="arrow6-btn" class="fa fa-angle-down"></i></a></div>
                     <p id="arrow6"></p>
                   </div>
                 </div>
@@ -348,6 +328,28 @@
                                   </div>
                                 </a>
                               </div>
+
+                              <div class="col-md-2">
+                                  <a class="picbox" rel="group" href="images/engpic9.JPG">
+                                    <div class="img-wrap">
+                                      <div class="overlay">
+                                        <i class="fa fa-search"></i>
+                                      </div>
+                                      <img src="images/engpic9.JPG" alt=""/>
+                                    </div>
+                                  </a>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <a class="picbox" rel="group" href="images/engpic10.JPG">
+                                      <div class="img-wrap">
+                                        <div class="overlay">
+                                          <i class="fa fa-search"></i>
+                                        </div>
+                                        <img src="images/engpic10.JPG" alt=""/>
+                                      </div>
+                                    </a>
+                                  </div>
           </div>
         </div>
       </section>
@@ -357,31 +359,20 @@
         <section id="venue" class="section-padding">
           <h1 style="text-align: center;">Venue</h1>
           <h2 style="text-align: center;"><a href="http://www.loneoaklonghorns.com/">http://www.loneoaklonghorns.com/</a></h2>
-          <section id="eng-pics" class="section-padding">
-              <div class="container-fluid">
-                  <div class="row">
-                    <div class="col-md-2">
-                      <a class="picbox" rel="group" href="images/barn-lone-oak.jpg">
-                        <div class="img-wrap">
-                          <div class="overlay">
-                            <i class="fa fa-search"></i>
-                          </div>
-                          <img src="images/barn-lone-oak.jpg" alt=""/>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-              </div>
-            </section>
-          <!-- Google Maps API for the venue -->
-          <div align="center">
-              <div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=8031%20Highway%2070%20(42.79%20mi)%20Marysville%2C%20California%2095901&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>Google Maps Generator by <a href="https://www.embedgooglemap.net">embedgooglemap.net</a></div><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div>
+          <div class="image">
+              <img style="display:block; margin: 0 auto;" src="images/loneoakslogo.jpg"><br>
+              <img style="display:block; margin: 0 auto;width: 50%" src="images/barn-lone-oak.jpg"><br>
+              <img style="display:block; margin: 0 auto;width: 50%" src="images/loneoaklonghorns.jpg">
           </div>
         </section>
             
         <section id="hotels" class="section-padding">
           <h1 style="text-align: center;">Hotels Near By</h1>
           <h3 style="text-align: center;">Note: Hotels are most expensive during the Fall season.</h3>
+          <!-- Google Maps API for the venue -->
+          <div align="center" style="display:block; margin-left: auto; margin-right:auto">
+              <iframe class="map" src="https://www.google.com/maps/d/embed?mid=1pWwffljxtl4m0_x0_JIF_kTf1Q4&hl=en"></iframe>
+          </div>
         </section>
     
         <footer>
@@ -401,23 +392,91 @@
 
 <script>
   function arrow1() {
-    var arrow1 = document.getElementById('arrow1');
-      arrow1.innerHTML = "We first met at Panda Express. Two worlds would colide at one of the most intense place to work at and that was at Panda Express in 2016. Does this mean fortune cookies actually tell the truth?";
+    var arrow1 = document.getElementById('arrow1'), arrow1_btn = document.getElementById('arrow1-btn');
+
+      if(arrow1_btn.className == "fa fa-angle-down")
+      {
+        arrow1.innerHTML = "We first met at Panda Express in 2016.";
+        arrow1_btn.className = "fa fa-angle-up";
+      }
+      else
+      {
+        arrow1.innerHTML = "";
+        arrow1_btn.className = "fa fa-angle-down";
+      }
     }
+
+
   function arrow2() {
-    document.getElementById('arrow2').innerHTML = "The day was September 26, 2016 and that's when the journey started. Many struggles between working together and balancing school put our relationship to the ultimate test.";
+   var arrow2 = document.getElementById('arrow2'), arrow2_btn = document.getElementById('arrow2-btn');
+
+    if(arrow2_btn.className == "fa fa-angle-down")
+      {
+        arrow2.innerHTML = "The day was September 26, 2016 and that's when the journey started. Many struggles between working together and balancing school put our relationship to the ultimate test.";
+        arrow2_btn.className = "fa fa-angle-up";
+      }
+      else
+      {
+        arrow2.innerHTML = "";
+        arrow2_btn.className = "fa fa-angle-down";
+      }
   }
   function arrow3() {
-    document.getElementById('arrow3').innerHTML = "On the foggy morning of August 26, 2018 the big question was popped off the cliffs of Muir Beach Overlook.";
+    var arrow3 = document.getElementById('arrow3'), arrow3_btn = document.getElementById('arrow3-btn');
+
+    if(arrow3_btn.className == "fa fa-angle-down")
+      {
+        arrow3.innerHTML = "On the foggy morning of August 26, 2018 the big question was popped off the cliffs of Muir Beach Overlook.";
+        arrow3_btn.className = "fa fa-angle-up";
+      }
+      else
+      {
+        arrow3.innerHTML = "";
+        arrow3_btn.className = "fa fa-angle-down";
+      }
   }
   function arrow4() {
-    document.getElementById('arrow4').innerHTML = "In the following years we have learned to Love and live with one another. And through it all Caley graduated with a Bachelor's of Science in Bussiness with a concentration in Financal Planning. Soon after we were to embark on a new journey, traveling to Thailand in 2018. Then soon after to Ireland, France, and England on a mission to see the world.";
+    var arrow4 = document.getElementById('arrow4'), arrow4_btn = document.getElementById('arrow4-btn');
+
+    if(arrow4_btn.className == "fa fa-angle-down")
+      {
+        arrow4.innerHTML = "In the following years we have learned to love and live with one another. Soon after we were to embark on a new journey, traveling to Thailand in the summer of 2018. And soon after to Ireland, France, and England of 2019 on a mission to see the world.";
+        arrow4_btn.className = "fa fa-angle-up";
+      }
+      else
+      {
+        arrow4.innerHTML = "";
+        arrow4_btn.className = "fa fa-angle-down";
+      }
   }
   function arrow5() {
-    document.getElementById('arrow5').innerHTML = "The big day is on September 26, 2020 at our beautiful venue Lone Oaks Long Horns Ranch in Marysville, CA.";
+    var arrow5 = document.getElementById('arrow5'), arrow5_btn = document.getElementById('arrow5-btn');
+
+    if(arrow5_btn.className == "fa fa-angle-down")
+      {
+        arrow5.innerHTML = "The big day is on September 26, 2020 at our beautiful venue" + '<a href="#venue">' + " Lone Oaks LongHorns Ranch in Marysville, CA.</a>";
+        arrow5_btn.className = "fa fa-angle-up";
+      }
+      else
+      {
+        arrow5.innerHTML = "";
+        arrow5_btn.className = "fa fa-angle-down";
+      }
   }
   function arrow6() {
-    document.getElementById('arrow6').innerHTML = "Our goals are to always live a happy life!";
+    var arrow6 = document.getElementById('arrow6');
+    var arrow6_btn = document.getElementById('arrow6-btn');
+
+    if(arrow6_btn.className == "fa fa-angle-down")
+      {
+        arrow6.innerHTML = "Our goals are to settle down and live a happy life!";
+        arrow6_btn.className = "fa fa-angle-up";
+      }
+      else
+      {
+        arrow6.innerHTML = "";
+        arrow6_btn.className = "fa fa-angle-down";
+      }
   }
   
 </script>
