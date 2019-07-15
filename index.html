@@ -26,9 +26,9 @@
 <body>
   <section class="hero">
     <section id="nav" class="navigation">
-      <header id="head" style="border-bottom: 1px solid rgba(255, 255, 255, 0.2); padding: 30px 0px;">
+      <header id="head" style="border-bottom: 1px solid rgba(255, 255, 255, 0.2); padding: 20px 0px;">
         <div class="header-content">
-          <img src="./images/weddinglogo.png" style="width: 20%; height: 10%;">
+          <a href="index.html"><img src="./images/weddinglogo.png" style="width: 20%; height: 10%;"></a>
           <div id="header" onclick="menuButton()" class="header-nav">
               <nav>
                   <ul class="primary-nav">
@@ -38,16 +38,16 @@
                       <li><a href="#venue" style="text-decoration: none;">Venue</a></li>
                       <li><a href="#hotels" style="text-decoration: none;">Hotels</a></li>
                   </ul>
-                  <ul id="rsvp" class="member-actions" style="top: 41px;">
+                  <ul id="rsvp" class="member-actions" style="top: 35px;">
                     <li><a href="#rsvp" class="btn-white btn-small" style="text-decoration: none;">RSVP</a></li>
                   </ul>
               </nav>
           </div>
-          <div id="rsvpForm">
-             
+          <div id="rsvpForm" action="insert.php" method="POST">
+
           </div>
-          <div class="navicon" id="navicon" style="top: 48px;">
-              <a id="menu" onclick="menu()" class="nav-toggle" href="#"><span></span></a>
+          <div class="navicon" id="navicon" style="top: 35px;">
+              <a id="menu" onclick="menu()" class="nav-toggle"><span id="menuResponsive"></span></a>
               <script>
                 function menu() {
                   var menu = document.getElementById('menu');
@@ -57,9 +57,10 @@
                     menu.className = "nav-toggle active";
                     header.className = "header-nav open";
                   }
-                  else if(window.onclick == menu())
+                  else 
                   {
                     menu.className = "nav-toggle";
+                    header.className = "header-nav";
                   }
                 }
 
@@ -80,7 +81,7 @@
                   rsvp.onclick = function() {
                     if(rsvpForm.innerHTML == '')
                     {
-                      rsvpForm.innerHTML = '<div id="rsvpPop" class="top"></div><div class="form"><div class ="info"><h1 class="head1">RSVP</h1><h2 class="head2">for the wedding of</h2><h1 class="head1">Caley & Tyler</h1><p class= "line">________________________________________</p><h2 class="head2">The Details</h2><p class="details">Saturday, September 26, 2020</p><p class="details">5:00 PM</p><br><h2 class="head2">Ceremony & Reception</h2><p class="details">8031 Highway 70 Marysville, California 95901</p><p class= "line">________________________________________</p><input type="text" placeholder="Name"><input type="number" placeholder="# of Guests"></div><button id="accept" class ="accept">Accept</button><button class ="decline">Decline</button></div>';
+                      rsvpForm.innerHTML = '<div id="rsvpPop" class="top"></div><div class="form"><div class ="info"><h1 class="head1">RSVP</h1><h2 class="head2">for the wedding of</h2><h1 class="head1">Caley & Tyler</h1><p class= "line">________________________________________</p><h2 class="head2">The Details</h2><p class="details">Saturday, September 26, 2020</p><p class="details">5:00 PM</p><br><h2 class="head2">Ceremony & Reception</h2><p class="details">8031 Highway 70 Marysville, California 95901</p><p class= "line">________________________________________</p><input type="text" placeholder="Name" name="name" required><input type="number" placeholder="# of Guests" name="guests" required></div><button id="accept" class ="accept">Accept</button><button class ="decline">Decline</button></div>';
                     }
                     else
                     {
@@ -99,22 +100,25 @@
                 var head = document.getElementById('head');
                 var rsvp = document.getElementById('rsvp');
                 var navicon = document.getElementById('navicon');
+                var menuResponsive = document.getElementById('menuResponsive');
                 window.onscroll = function() {
                     if(window.pageYOffset > 650) {
                         nav.className = "navigation fixed";
                         nav.style.backgroundColor = "rgba(189, 189, 189, 0.61)"; //rgba(239, 213, 186, 0.88)
                         head.style.borderBottom = "none";
-                        head.style.padding = "15px 0px";
-                        rsvp.style.top = "20px";
-                        navicon.style.top = "34px";
+                        head.style.padding = "18px 0px";
+                        rsvp.style.top = "25px";
+                        navicon.style.top = "45px";
+                        menuResponsive.style.bottom = "35px";
                     }
                     else {
                         nav.style.background = "transparent";
                         nav.style.className = "navigation";
                         head.style.borderBottom = "1px solid rgba(255, 255, 255, 0.2)";
-                        head.style.padding = "30px 0px";
-                        rsvp.style.top = "41px";
-                        navicon.style.top = "48px";
+                        head.style.padding = "20px 0px";
+                        rsvp.style.top = "30px";
+                        navicon.style.top = "35px";
+                        menuResponsive.style.bottom = "25px";
                     }
                 }
             </script>
@@ -138,9 +142,9 @@
                   daysLeft = daysLeft % 365;
                 }
                 var e_hrsLeft = (e_daysLeft - daysLeft) * 24;
-                var hrsLeft = Math.floor(e_hrsLeft);
-                var minsLeft = Math.floor((e_hrsLeft - hrsLeft) * 60);
-                document.write("<h1><b>" + yearsLeft + " years " + daysLeft + " days " + hrsLeft + " hours " + minsLeft + " minutes</b></h1>");
+                var hrsLeft = Math.floor(e_hrsLeft%24);
+                var minsLeft = Math.floor(((e_hrsLeft - hrsLeft) * 60)%60);
+                document.write("<h1><b>" + yearsLeft + " year " + daysLeft + " days " + hrsLeft + " hours " + minsLeft + " minutes</b></h1>");
               </script>
               <br><hr>
           </div>
@@ -149,7 +153,7 @@
     </section>
 
     <section id="timeline" class="section-padding">
-        <div class="conatiner-invite">
+        <div class="container-invite">
           <div class="row">
             <div class="col-md-12 text-center">
                 <h1>Our Journey</h1>

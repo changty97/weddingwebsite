@@ -421,10 +421,6 @@ nav ul.primary-nav li, nav ul.member-actions li {
         padding-bottom: 0;
     }
 
-    .down-arrow {
-        display: none;
-    }
-
 }
 
 @media screen and (max-width: 320px) {

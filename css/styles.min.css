@@ -14,11 +14,12 @@ body {
 
 .hero {
     min-height: 750px;
-    background: url("/weddingsite/images/coverpic1.jpg");
+    background: url("/weddingsite/images/coverpic.jpg");
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    background-position: center;
 }
 
 .nav-toggle {
@@ -97,7 +98,6 @@ body {
     position: absolute;
     height: 26px;
     right: 10px;
-    top: 48px;
     visibility: hidden;
     transition: all 300ms ease-in-out;
 }

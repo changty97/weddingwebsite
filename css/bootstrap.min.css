@@ -67,7 +67,7 @@ ul {
     padding-inline-start: 40px;
 }
 
-.conatiner-invite {
+.container-invite {
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
@@ -79,19 +79,35 @@ ul {
         width: 340px;
         height: 280px;
     }
+    
+    .hero {
+        background-position: -250px;
+    }
+}
+
+@media (min-width: 650px) {
+    .navicon {
+        top: 20px;
+    }
+
+    .nav-toggle {
+        top: 20px;
+    }
 }
 
 
 @media (min-width: 768px) {
-    .conatiner-invite {
+    .container-invite {
         width: 750px;
     }
 }
 
 @media (min-width: 992px) {
-    .conatiner-invite {
+    .container-invite {
         width: 970px;
     }
+
+    .
 }
 
 @media (min-width: 992px) {
@@ -117,7 +133,7 @@ ul {
 } */
 
 @media (min-width:1200px) {
-    .conatiner-invite {
+    .container-invite {
         width:1170px
     }
 }
@@ -134,12 +150,12 @@ ul {
     padding-left: 15px;
 }
 
-.clearfix:before, .clearfix:after, .dl-horizontal dd:before, .dl-horizontal dd:after, .conatiner-invite:before, .conatiner-invite:after, .conatiner-invite-fluid:before, .conatiner-invite-fluid:after, .row:before, .row:after, .form-horizontal .form-group:before, .form-horizontal .form-group:after, .btn-toolbar:before, .btn-toolbar:after, .btn-group-vertical>.btn-group:before, .btn-group-vertical>.btn-group:after, .nav:before, .nav:after, .navbar:before, .navbar:after, .navbar-header:before, .navbar-header:after, .navbar-collapse:before, .navbar-collapse:after, .pager:before, .pager:after, .panel-body:before, .panel-body:after, .modal-footer:before, .modal-footer:after {
+.clearfix:before, .clearfix:after, .dl-horizontal dd:before, .dl-horizontal dd:after, .container-invite:before, .container-invite:after, .container-invite-fluid:before, .container-invite-fluid:after, .row:before, .row:after, .form-horizontal .form-group:before, .form-horizontal .form-group:after, .btn-toolbar:before, .btn-toolbar:after, .btn-group-vertical>.btn-group:before, .btn-group-vertical>.btn-group:after, .nav:before, .nav:after, .navbar:before, .navbar:after, .navbar-header:before, .navbar-header:after, .navbar-collapse:before, .navbar-collapse:after, .pager:before, .pager:after, .panel-body:before, .panel-body:after, .modal-footer:before, .modal-footer:after {
     display: table;
     content: " ";
 }
 
-.clearfix:after, .dl-horizontal dd:after, .conatiner-invite:after, .conatiner-invite-fluid:after, .row:after, .form-horizontal .form-group:after, .btn-toolbar:after, .btn-group-vertical>.btn-group:after, .nav:after, .navbar:after, .navbar-header:after, .navbar-collapse:after, .pager:after, .panel-body:after, .modal-footer:after {
+.clearfix:after, .dl-horizontal dd:after, .container-invite:after, .container-invite-fluid:after, .row:after, .form-horizontal .form-group:after, .btn-toolbar:after, .btn-group-vertical>.btn-group:after, .nav:after, .navbar:after, .navbar-header:after, .navbar-collapse:after, .pager:after, .panel-body:after, .modal-footer:after {
     clear: both;
 }
 
