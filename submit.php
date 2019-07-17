@@ -16,6 +16,7 @@
 
 $x = $_POST['name'];
 $y = $_POST['guests'];
+$decline = $_POST['decline'];
 $server = "localhost";
 $user = "root";
 $pass = "";
@@ -30,12 +31,12 @@ if($conn->connect_error) {
 }
 
 //Check to see if the Accept button was selected else it was Declined
-if($dom->getElementById('accept')) {
+if($decline) {
     echo "<h1 class='text'><b>Thank You!</b></h1><br>";
-    $sql = "INSERT INTO `accept` (`name`, `guests`) VALUES ('$x','$y')";
+    $sql = "INSERT INTO `decline` (`name`, `guests`) VALUES ('$x','$y')";
     
     if($conn->query($sql) === TRUE) {
-        echo "<p class='text'>You Have RSVP'd Successfully! We hope to see you at the Wedding!</p>";
+        echo "<p class='text'>AW NO! We hope to see you soon!</p>";
     }
     else {
         echo "Error: " . $sql . "<br>" . $conn->error;
@@ -43,10 +44,10 @@ if($dom->getElementById('accept')) {
 }
 else {
     echo "<h1 class='text'><b>Thank You!</b></h1><br>";
-    $sql = "INSERT INTO `decline` (`name`, `guests`) VALUES ('$x','$y')";
+    $sql = "INSERT INTO `accept` (`name`, `guests`) VALUES ('$x','$y')";
     
     if($conn->query($sql) === TRUE) {
-        echo "<p class='text'>AW NO! We hope to see you soon!</p>";
+        echo "<p class='text'>You Have RSVP'd Successfully! We hope to see you at the Wedding!</p>";
     }
     else {
         echo "Error: " . $sql . "<br>" . $conn->error;

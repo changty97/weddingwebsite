@@ -49,7 +49,8 @@
             <div id="rsvpPop" class="top"></div>
                 <div class="form">
                     <div class ="info">
-                        <h1 class="head1">RSVP</h1><h2 class="head2">for the wedding of</h2>
+                        <h1 class="head1">RSVP</h1>
+                        <h2 class="head2">for the wedding of</h2>
                         <h1 class="head1">Caley & Tyler</h1><p class= "line">________________________________________</p>
                         <h2 class="head2">The Details</h2><p class="details">Saturday, September 26, 2020</p><p class="details">5:00 PM</p><br><h2 class="head2">Ceremony & Reception</h2>
                         <p class="details">8031 Highway 70 Marysville, California 95901</p>
@@ -57,8 +58,8 @@
                         <input type="text" name="name" placeholder="Name" required>
                         <input type="number" name="guests" placeholder="# of Guests" min="1" max="2" required>
                     </div>
-                    <button type="submit" value="submit" id="accept" class="accept">Accept</button>
-                    <button type="submit" value="submit" id="decline" class="decline">Decline</button>
+                    <button type="submit" value="submit" name="accept" class="accept">Accept</button>
+                    <button type="submit" value="submit" name="decline" class="decline">Decline</button>
                 </div>
           </form>
 
@@ -102,6 +103,12 @@
                         rsvpForm.style.display = "block";
                     }
                   }
+                    
+                window.onclick = function(event) {
+                    if (event.target == rsvpForm) {
+                        rsvpForm.style.display = "none";
+                    }
+                }
               </script>
           </div>
         </div>
@@ -472,7 +479,7 @@
 
     if(arrow5_btn.className == "fa fa-angle-down")
       {
-        arrow5.innerHTML = "The big day is on September 26, 2020 at our beautiful venue" + '<a href="#venue">' + " Lone Oaks LongHorns Ranch in Marysville, CA.</a>";
+        arrow5.innerHTML = "The big day is on September 26, 2020 at our beautiful venue" + '<a href="#venue"><br>' + "Lone Oaks LongHorns Ranch in Marysville, CA.</a>";
         arrow5_btn.className = "fa fa-angle-up";
       }
       else
