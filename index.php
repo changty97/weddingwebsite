@@ -28,24 +28,40 @@
     <section id="nav" class="navigation">
       <header id="head" style="border-bottom: 1px solid rgba(255, 255, 255, 0.2); padding: 20px 0px;">
         <div class="header-content">
-          <a href="index.html"><img src="./images/weddinglogo.png" style="width: 20%; height: 10%;"></a>
+          <a href="index.php"><img src="./images/weddinglogo.png" style="width: 20%; height: 10%;"></a>
           <div id="header" onclick="menuButton()" class="header-nav">
               <nav>
                   <ul class="primary-nav">
-                      <li><a href="index.html" style="text-decoration: none;">Home</a></li>
+                      <li><a href="index.php" style="text-decoration: none;">Home</a></li>
                       <li><a href="#timeline" style="text-decoration: none;">Timeline</a></li>
                       <li><a href="#eng-pics" style="text-decoration: none;">Engagment</a></li>
                       <li><a href="#venue" style="text-decoration: none;">Venue</a></li>
                       <li><a href="#hotels" style="text-decoration: none;">Hotels</a></li>
                   </ul>
-                  <ul id="rsvp" class="member-actions" style="top: 35px;">
+                  <!-- RSVP Button -->
+                  <ul id="rsvp" onclick="showForm()" class="member-actions" style="top: 35px;">
                     <li><a href="#rsvp" class="btn-white btn-small" style="text-decoration: none;">RSVP</a></li>
                   </ul>
               </nav>
           </div>
-          <div id="rsvpForm" action="insert.php" method="POST">
+        <!-- RSVP Form Popup -->
+          <form id="rsvpForm" action="submit.php" method="post" style="display: none">
+            <div id="rsvpPop" class="top"></div>
+                <div class="form">
+                    <div class ="info">
+                        <h1 class="head1">RSVP</h1><h2 class="head2">for the wedding of</h2>
+                        <h1 class="head1">Caley & Tyler</h1><p class= "line">________________________________________</p>
+                        <h2 class="head2">The Details</h2><p class="details">Saturday, September 26, 2020</p><p class="details">5:00 PM</p><br><h2 class="head2">Ceremony & Reception</h2>
+                        <p class="details">8031 Highway 70 Marysville, California 95901</p>
+                        <p class= "line">________________________________________</p>
+                        <input type="text" name="name" placeholder="Name" required>
+                        <input type="number" name="guests" placeholder="# of Guests" min="1" max="2" required>
+                    </div>
+                    <button type="submit" value="submit" id="accept" class="accept">Accept</button>
+                    <button type="submit" value="submit" id="decline" class="decline">Decline</button>
+                </div>
+          </form>
 
-          </div>
           <div class="navicon" id="navicon" style="top: 35px;">
               <a id="menu" onclick="menu()" class="nav-toggle"><span id="menuResponsive"></span></a>
               <script>
@@ -74,18 +90,16 @@
                   }
                 }
 
-                  var rsvp = document.getElementById('rsvp');
                   var rsvpForm = document.getElementById('rsvpForm');
-                  //var span = document.getElementById('close')[0];
                   
-                  rsvp.onclick = function() {
-                    if(rsvpForm.innerHTML == '')
+                  function showForm() {
+                    if(rsvpForm.style.display == "block")
                     {
-                      rsvpForm.innerHTML = '<div id="rsvpPop" class="top"></div><div class="form"><div class ="info"><h1 class="head1">RSVP</h1><h2 class="head2">for the wedding of</h2><h1 class="head1">Caley & Tyler</h1><p class= "line">________________________________________</p><h2 class="head2">The Details</h2><p class="details">Saturday, September 26, 2020</p><p class="details">5:00 PM</p><br><h2 class="head2">Ceremony & Reception</h2><p class="details">8031 Highway 70 Marysville, California 95901</p><p class= "line">________________________________________</p><input type="text" placeholder="Name" name="name" required><input type="number" placeholder="# of Guests" name="guests" required></div><button id="accept" class ="accept">Accept</button><button class ="decline">Decline</button></div>';
+                        rsvpForm.style.display = "none";
                     }
                     else
                     {
-                      rsvpForm.innerHTML = '';
+                        rsvpForm.style.display = "block";
                     }
                   }
               </script>

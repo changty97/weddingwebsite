@@ -646,7 +646,7 @@ border-color: transparent white transparent transparent;
     }
     
     .line {
-      margin: 0px auto 20px auto;
+      margin: 0px auto 20px 20px;
       color: #999;
     }
     
@@ -702,3 +702,5 @@ border-color: transparent white transparent transparent;
         width: 640px;
         height: 480px;
     }
+    
+    

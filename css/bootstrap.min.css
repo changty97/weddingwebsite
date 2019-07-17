@@ -83,6 +83,10 @@ ul {
     .hero {
         background-position: -250px;
     }
+
+    .form {
+        margin-left: -5px;
+    }
 }
 
 @media (min-width: 650px) {
@@ -93,6 +97,8 @@ ul {
     .nav-toggle {
         top: 20px;
     }
+
+    
 }
 
 
