@@ -40,7 +40,7 @@ if($result->num_rows > 0)
     //output data of each row
     while($row = $result->fetch_assoc())
     {
-        echo "<tr><td>" . $row["id"]. "</td><td>" . $row["name"] . "</td><td>" . $row["guests"] . "</td></tr>";
+        echo "<tr><td>" . $row["name"] . "</td><td>" . $row["guests"] . "</td></tr>";
     }
     echo "</table>";
 }

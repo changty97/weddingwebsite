@@ -406,7 +406,6 @@
           <!-- PHP pull from MySQL for List of People Attending -->
           <table align="center">
               <tr>
-                  <th>ID</th>
                   <th>Name</th>
                   <th>Guests</th>
               </tr>

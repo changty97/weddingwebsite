@@ -16,7 +16,7 @@
 
 $x = $_POST['name'];
 $y = $_POST['guests'];
-$decline = $_POST['decline'];
+$accept = $_POST['accept'];
 $server = "localhost";
 $user = "root";
 $pass = "";
@@ -31,12 +31,12 @@ if($conn->connect_error) {
 }
 
 //Check to see if the Accept button was selected else it was Declined
-if($decline) {
+if($accept) {
     echo "<h1 class='text'><b>Thank You!</b></h1><br>";
-    $sql = "INSERT INTO `decline` (`name`, `guests`) VALUES ('$x','$y')";
+    $sql = "INSERT INTO `accept` (`name`, `guests`) VALUES ('$x','$y')";
     
     if($conn->query($sql) === TRUE) {
-        echo "<p class='text'>AW NO! We hope to see you soon!</p>";
+        echo "<p class='text'>You Have RSVP'd Successfully! We hope to see you at the Wedding!</p>";
     }
     else {
         echo "Error: " . $sql . "<br>" . $conn->error;
@@ -47,7 +47,7 @@ else {
     $sql = "INSERT INTO `accept` (`name`, `guests`) VALUES ('$x','$y')";
     
     if($conn->query($sql) === TRUE) {
-        echo "<p class='text'>You Have RSVP'd Successfully! We hope to see you at the Wedding!</p>";
+        echo "<p class='text'>AW NO! We hope to see you soon!</p>";
     }
     else {
         echo "Error: " . $sql . "<br>" . $conn->error;
