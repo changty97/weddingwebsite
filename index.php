@@ -37,6 +37,7 @@
                       <li><a href="#eng-pics" style="text-decoration: none;">Engagment</a></li>
                       <li><a href="#venue" style="text-decoration: none;">Venue</a></li>
                       <li><a href="#hotels" style="text-decoration: none;">Hotels</a></li>
+                      <li><a href="#attendance" style="text-decoration: none;">Attendance</a></li>
                   </ul>
                   <!-- RSVP Button -->
                   <ul id="rsvp" onclick="showForm()" class="member-actions" style="top: 35px;">
@@ -398,6 +399,19 @@
           <div align="center" style="display:block; margin-left: auto; margin-right:auto">
               <iframe class="map" src="https://www.google.com/maps/d/embed?mid=1pWwffljxtl4m0_x0_JIF_kTf1Q4&hl=en"></iframe>
           </div>
+        </section>
+
+        <section id="attendance" class="section-padding">
+          <h1 style="text-align: center;">Who's Attending</h1>
+          <!-- PHP pull from MySQL for List of People Attending -->
+          <table align="center">
+              <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Guests</th>
+              </tr>
+              <?php include 'list.php'; ?>
+          </table>
         </section>
     
         <footer>
