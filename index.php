@@ -28,7 +28,7 @@
     <section id="nav" class="navigation">
       <header id="head" style="border-bottom: 1px solid rgba(255, 255, 255, 0.2); padding: 20px 0px;">
         <div class="header-content">
-          <a href="index.php"><img src="./images/weddinglogo.png" style="width: 20%; height: 10%;"></a>
+          <a href="index.php"><img src="./images/weddinglogo2.png" style="width: 220px; height: 70px;"></a>
           <div id="header" onclick="menuButton()" class="header-nav">
               <nav>
                   <ul class="primary-nav">
@@ -50,13 +50,14 @@
             <div id="rsvpPop" class="top"></div>
                 <div class="form">
                     <div class ="info">
+                        <i class="fa fa-close exit" style="font-size: 25px;" onclick="showForm()"></i>
                         <h1 class="head1">RSVP</h1>
                         <h2 class="head2">for the wedding of</h2>
                         <h1 class="head1">Caley & Tyler</h1><p class= "line">________________________________________</p>
                         <h2 class="head2">The Details</h2><p class="details">Saturday, September 26, 2020</p><p class="details">5:00 PM</p><br><h2 class="head2">Ceremony & Reception</h2>
                         <p class="details">8031 Highway 70 Marysville, California 95901</p>
                         <p class= "line">________________________________________</p>
-                        <input type="text" name="name" placeholder="Name" required>
+                        <input type="text" name="name" placeholder="First and Last Name" required>
                         <input type="number" name="guests" placeholder="# of Guests" min="1" max="2" required>
                     </div>
                     <button type="submit" value="submit" name="accept" class="accept">Accept</button>
@@ -93,7 +94,6 @@
                 }
 
                   var rsvpForm = document.getElementById('rsvpForm');
-                  
                   function showForm() {
                     if(rsvpForm.style.display == "block")
                     {
@@ -190,42 +190,42 @@
                 <div class="container left conatiner-outside">
                   <div class="content">
                     <h1>How we Met</h1>
-                    <div class="down-arrow floating-arrow"><a onclick="arrow1()" href="#invitation"><i id="arrow1-btn" class="fa fa-angle-down"></i></a></div>
+                    <div class="down-arrow floating-arrow"><a onclick="arrow1()" href="#invitation"><i id="arrow1-btn" class="fa fa-angle-down arrow-align"></i></a></div>
                     <p id="arrow1"></p>
                   </div>
                 </div>
                 <div class="container right">
                   <div class="content">
                     <h1>When I asked her</h1>
-                    <div class="down-arrow floating-arrow"><a onclick="arrow2()" href="#invitation"><i id="arrow2-btn" class="fa fa-angle-down"></i></a></div>
+                    <div class="down-arrow floating-arrow"><a onclick="arrow2()" href="#invitation"><i id="arrow2-btn" class="fa fa-angle-down arrow-align"></i></a></div>
                     <p id="arrow2"></p>
                   </div>
                 </div>
                 <div class="container left">
                     <div class="content">
                       <h1>Popping the Question</h1>
-                      <div class="down-arrow floating-arrow"><a onclick="arrow3()" href="#invitation"><i id="arrow3-btn" class="fa fa-angle-down"></i></a></div>
+                      <div class="down-arrow floating-arrow"><a onclick="arrow3()" href="#invitation"><i id="arrow3-btn" class="fa fa-angle-down arrow-align"></i></a></div>
                       <p id="arrow3"></p>
                     </div>
                   </div>
                 <div class="container right">
                   <div class="content">
                     <h1>Enjoying Life!</h1>
-                    <div class="down-arrow floating-arrow"><a onclick="arrow4()" href="#invitation"><i id="arrow4-btn" class="fa fa-angle-down"></i></a></div>
+                    <div class="down-arrow floating-arrow"><a onclick="arrow4()" href="#invitation"><i id="arrow4-btn" class="fa fa-angle-down arrow-align"></i></a></div>
                     <p id="arrow4"></p>
                   </div>
                 </div>
                 <div class="container left">
                   <div class="content">
                     <h1>When We Tie the Knot</h1>
-                    <div class="down-arrow floating-arrow"><a onclick="arrow5()" href="#invitation"><i id="arrow5-btn" class="fa fa-angle-down"></i></a></div>
+                    <div class="down-arrow floating-arrow"><a onclick="arrow5()" href="#invitation"><i id="arrow5-btn" class="fa fa-angle-down arrow-align"></i></a></div>
                     <p id="arrow5"></p>
                   </div>
                 </div>
                 <div class="container right">
                   <div class="content">
                     <h1>The Future...</h1>
-                    <div class="down-arrow floating-arrow"><a onclick="arrow6()" href="#invitation"><i id="arrow6-btn" class="fa fa-angle-down"></i></a></div>
+                    <div class="down-arrow floating-arrow"><a onclick="arrow6()" href="#invitation"><i id="arrow6-btn" class="fa fa-angle-down arrow-align"></i></a></div>
                     <p id="arrow6"></p>
                   </div>
                 </div>
@@ -432,15 +432,15 @@
   function arrow1() {
     var arrow1 = document.getElementById('arrow1'), arrow1_btn = document.getElementById('arrow1-btn');
 
-      if(arrow1_btn.className == "fa fa-angle-down")
+      if(arrow1_btn.className == "fa fa-angle-down arrow-align")
       {
         arrow1.innerHTML = "We first met at Panda Express in 2016.<br><img src='/weddingsite/images/panda-express.png' height='45px' width='55px'>";
-        arrow1_btn.className = "fa fa-angle-up";
+        arrow1_btn.className = "fa fa-angle-up arrow-align";
       }
       else
       {
         arrow1.innerHTML = "";
-        arrow1_btn.className = "fa fa-angle-down";
+        arrow1_btn.className = "fa fa-angle-down arrow-align";
       }
     }
 
@@ -448,72 +448,73 @@
   function arrow2() {
    var arrow2 = document.getElementById('arrow2'), arrow2_btn = document.getElementById('arrow2-btn');
 
-    if(arrow2_btn.className == "fa fa-angle-down")
+    if(arrow2_btn.className == "fa fa-angle-down arrow-align")
       {
         arrow2.innerHTML = "The day was September 26, 2016 and that's when the journey started. Many struggles between working together and balancing school put our relationship to the ultimate test.";
-        arrow2_btn.className = "fa fa-angle-up";
+        arrow2_btn.className = "fa fa-angle-up arrow-align";
       }
       else
       {
         arrow2.innerHTML = "";
-        arrow2_btn.className = "fa fa-angle-down";
+        arrow2_btn.className = "fa fa-angle-down arrow-align";
       }
   }
   function arrow3() {
     var arrow3 = document.getElementById('arrow3'), arrow3_btn = document.getElementById('arrow3-btn');
 
-    if(arrow3_btn.className == "fa fa-angle-down")
+    if(arrow3_btn.className == "fa fa-angle-down arrow-align")
       {
         arrow3.innerHTML = "On the foggy morning of August 26, 2018 the big question was popped off the cliffs of Muir Beach Overlook.";
-        arrow3_btn.className = "fa fa-angle-up";
+        //<section id='eng-pics' class='section-padding'><div class='container-fluid'><div class='row'><div class='col-md-2'><a class='picbox' rel='group' href='images/coverpic.JPG'><div class='img-wrap' style='width: 155px; hieght: 150px'><div class='overlay'><i class='fa fa-search'></i></div><img src='images/overlook.JPG' alt=''/></div></a></div></div></div>
+        arrow3_btn.className = "fa fa-angle-up arrow-align";
       }
       else
       {
         arrow3.innerHTML = "";
-        arrow3_btn.className = "fa fa-angle-down";
+        arrow3_btn.className = "fa fa-angle-down arrow-align";
       }
   }
   function arrow4() {
     var arrow4 = document.getElementById('arrow4'), arrow4_btn = document.getElementById('arrow4-btn');
 
-    if(arrow4_btn.className == "fa fa-angle-down")
+    if(arrow4_btn.className == "fa fa-angle-down arrow-align")
       {
         arrow4.innerHTML = "In the following years we have learned to love and live with one another. Soon after we were to embark on a new journey, traveling to Thailand in the summer of 2018. And soon after to Ireland, France, and England of 2019 on a mission to see the world.";
-        arrow4_btn.className = "fa fa-angle-up";
+        arrow4_btn.className = "fa fa-angle-up arrow-align";
       }
       else
       {
         arrow4.innerHTML = "";
-        arrow4_btn.className = "fa fa-angle-down";
+        arrow4_btn.className = "fa fa-angle-down arrow-align";
       }
   }
   function arrow5() {
     var arrow5 = document.getElementById('arrow5'), arrow5_btn = document.getElementById('arrow5-btn');
 
-    if(arrow5_btn.className == "fa fa-angle-down")
+    if(arrow5_btn.className == "fa fa-angle-down arrow-align")
       {
         arrow5.innerHTML = "The big day is on September 26, 2020 at our beautiful venue" + '<a href="#venue"><br>' + "Lone Oaks LongHorns Ranch in Marysville, CA.</a>";
-        arrow5_btn.className = "fa fa-angle-up";
+        arrow5_btn.className = "fa fa-angle-up arrow-align";
       }
       else
       {
         arrow5.innerHTML = "";
-        arrow5_btn.className = "fa fa-angle-down";
+        arrow5_btn.className = "fa fa-angle-down arrow-align";
       }
   }
   function arrow6() {
     var arrow6 = document.getElementById('arrow6');
     var arrow6_btn = document.getElementById('arrow6-btn');
 
-    if(arrow6_btn.className == "fa fa-angle-down")
+    if(arrow6_btn.className == "fa fa-angle-down arrow-align")
       {
         arrow6.innerHTML = "Our goals are to settle down and live a happy life!";
-        arrow6_btn.className = "fa fa-angle-up";
+        arrow6_btn.className = "fa fa-angle-up arrow-align";
       }
       else
       {
         arrow6.innerHTML = "";
-        arrow6_btn.className = "fa fa-angle-down";
+        arrow6_btn.className = "fa fa-angle-down arrow-align";
       }
   }
   

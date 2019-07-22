@@ -463,6 +463,10 @@ a:-webkit-any-link {
     animation-timing-function: ease-in-out;
 }
 
+.arrow-align {
+    margin-right: 10px;
+  }
+
 /* The actual timeline (the vertical ruler) */
 .timeline {
 position: relative;
@@ -611,6 +615,12 @@ border-color: transparent white transparent transparent;
     background-color: #BDC3C7;
     font-family: 'Raleway';
     }
+
+    .exit {
+        margin-left: 90%;
+        cursor: pointer;
+      }
+
     .top {
       /* background-color: rgba(221, 188, 155, 0.88); */
       height: 150px;
@@ -676,7 +686,7 @@ border-color: transparent white transparent transparent;
       font-weight: 600;
       padding: 15px 32px;
       width: 200px;
-      margin: 20px auto 0px auto; 
+      margin: 8px auto 0px auto; 
       float:left;
     }
     
