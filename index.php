@@ -417,7 +417,7 @@
             <div>
                 <div class="row">
                     <div class="col-sm-12 text-center">
-                        <span class="to-top-wrapper"><a href="#top" class="to-top"><i class="fa fa-angle-up"></i></a></span>
+                        <span class="to-top-wrapper"><a href="#top" class="to-top"><i class="fa fa-angle-up" style="font-size: 25px"></i></a></span>
                         <p>Developed by Tyler Chang</p>
                         <small>&copy; Copyright 2019, Changber Corporation</small>
                     </div>

@@ -452,7 +452,7 @@ a:-webkit-any-link {
     color: #fff;
     font-size: 30px;
     position: absolute;
-    bottom: 30px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -551,12 +551,12 @@ left: 25.4%;
 /* The actual content */
 .content {
     padding: 20px 30px;
-    background-color: rgba(158, 158, 158, 0.61);
     position: relative;
     border-radius: 6px;
-    /* font-family: Brush Script MT, Brush Script Std, cursive;  */
     text-align: center;
     color: black;
+    border: 10px solid black;
+    border-image: url('/weddingsite/images/border.png') 30;
 }
 
 /* Media queries - Responsive timeline on screens less than 600px wide */
