@@ -28,7 +28,7 @@
     <section id="nav" class="navigation">
       <header id="head" style="border-bottom: 1px solid rgba(255, 255, 255, 0.2); padding: 20px 0px;">
         <div class="header-content">
-          <a href="index.php"><img src="./images/weddinglogo2.png" style="width: 220px; height: 70px;"></a>
+          <a href="index.php"><img src="./images/weddinglogo2.png" class="logo"></a>
           <div id="header" onclick="menuButton()" class="header-nav">
               <nav>
                   <ul class="primary-nav">

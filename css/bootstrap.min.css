@@ -87,6 +87,11 @@ ul {
     .form {
         margin-left: -5px;
     }
+
+    .logo {
+        width: 155px;
+        height: 45px; 
+    }
 }
 
 @media (min-width: 650px) {
