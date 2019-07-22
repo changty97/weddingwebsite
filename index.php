@@ -57,8 +57,8 @@
                         <h2 class="head2">The Details</h2><p class="details">Saturday, September 26, 2020</p><p class="details">5:00 PM</p><br><h2 class="head2">Ceremony & Reception</h2>
                         <p class="details">8031 Highway 70 Marysville, California 95901</p>
                         <p class= "line">________________________________________</p>
-                        <input type="text" name="name" placeholder="First and Last Name" required>
                         <input type="number" name="guests" placeholder="# of Guests" min="1" max="2" required>
+                        <input type="text" name="name" placeholder="First and Last Name" required>
                     </div>
                     <button type="submit" value="submit" name="accept" class="accept">Accept</button>
                     <button type="submit" value="submit" name="decline" class="decline">Decline</button>
@@ -110,6 +110,7 @@
                         rsvpForm.style.display = "none";
                     }
                 }
+              
               </script>
           </div>
         </div>
@@ -464,7 +465,7 @@
 
     if(arrow3_btn.className == "fa fa-angle-down arrow-align")
       {
-        arrow3.innerHTML = "On the foggy morning of August 26, 2018 the big question was popped off the cliffs of Muir Beach Overlook.";
+        arrow3.innerHTML = "On the foggy morning of August 26, 2018 the big question was popped off the cliffs of Muir Beach Overlook.<section id='eng-pics' class='section-padding'><div class='container-fluid'><div class='row'><div class='col-md-2'><a class='picbox' rel='group' href='images/eng1.JPG'><div class='img-wrap' style='width: 200px; hieght: 150px; margin-left: 100px;'><div class='overlay'><i class='fa fa-search'></i></div><img src='images/eng1.JPG' alt=''/></div></a></div></div></div>";
         //<section id='eng-pics' class='section-padding'><div class='container-fluid'><div class='row'><div class='col-md-2'><a class='picbox' rel='group' href='images/coverpic.JPG'><div class='img-wrap' style='width: 155px; hieght: 150px'><div class='overlay'><i class='fa fa-search'></i></div><img src='images/overlook.JPG' alt=''/></div></a></div></div></div>
         arrow3_btn.className = "fa fa-angle-up arrow-align";
       }
@@ -479,7 +480,7 @@
 
     if(arrow4_btn.className == "fa fa-angle-down arrow-align")
       {
-        arrow4.innerHTML = "In the following years we have learned to love and live with one another. Soon after we were to embark on a new journey, traveling to Thailand in the summer of 2018. And soon after to Ireland, France, and England of 2019 on a mission to see the world.";
+        arrow4.innerHTML = "We both love to travel! We have gone to Thailand during the summer of 2018. Soon after to Ireland, France, and England of 2019 on a mission to see the world.<section id='eng-pics' class='section-padding'><div class='container-fluid'><div class='row'><div class='col-md-2'><a class='picbox' rel='group' href='images/thailand1.JPG'><div class='img-wrap' style='width: 200px; hieght: 150px; margin-left: 100px;'><div class='overlay'><i class='fa fa-search'></i></div><img src='images/thailand1.JPG' alt=''/></div></a></div></div></div>";
         arrow4_btn.className = "fa fa-angle-up arrow-align";
       }
       else
