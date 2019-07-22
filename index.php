@@ -434,7 +434,7 @@
 
       if(arrow1_btn.className == "fa fa-angle-down")
       {
-        arrow1.innerHTML = "We first met at Panda Express in 2016.";
+        arrow1.innerHTML = "We first met at Panda Express in 2016.<br><img src='/weddingsite/images/panda-express.png' height='45px' width='55px'>";
         arrow1_btn.className = "fa fa-angle-up";
       }
       else
