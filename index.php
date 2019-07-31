@@ -22,7 +22,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
-
 <body>
   <section class="hero">
     <section id="nav" class="navigation">
@@ -37,7 +36,6 @@
                       <li><a href="#eng-pics" style="text-decoration: none;">Engagment</a></li>
                       <li><a href="#venue" style="text-decoration: none;">Venue</a></li>
                       <li><a href="#hotels" style="text-decoration: none;">Hotels</a></li>
-                      <li><a href="#attendance" style="text-decoration: none;">Attendance</a></li>
                   </ul>
                   <!-- RSVP Button -->
                   <ul id="rsvp" onclick="showForm()" class="member-actions" style="top: 35px;">
@@ -48,7 +46,7 @@
         <!-- RSVP Form Popup -->
           <form id="rsvpForm" action="submit.php" method="post" style="display: none">
             <div id="rsvpPop" class="top"></div>
-                <div class="form">
+                <div class="form" id="form">
                     <div class ="info">
                         <i class="fa fa-close exit" style="font-size: 25px;" onclick="showForm()"></i>
                         <h1 class="head1">RSVP</h1>
@@ -57,14 +55,55 @@
                         <h2 class="head2">The Details</h2><p class="details">Saturday, September 26, 2020</p><p class="details">5:00 PM</p><br><h2 class="head2">Ceremony & Reception</h2>
                         <p class="details">8031 Highway 70 Marysville, California 95901</p>
                         <p class= "line">________________________________________</p>
-                        <input type="number" name="guests" placeholder="# of Guests" min="1" max="2" required>
-                        <input type="text" name="name" placeholder="First and Last Name" required>
+                        <input type="number" name="guests" placeholder="# of Guests" min="1" max="5" required id="guests" onkeyup="addGuest()">
+                        <!-- <input type="text" name="name" style="margin-top: -10px;" placeholder="First and Last Name" required> -->
+                        <div id="guestNames"></div>
                     </div>
-                    <button type="submit" value="submit" name="accept" class="accept">Accept</button>
-                    <button type="submit" value="submit" name="decline" class="decline">Decline</button>
+                    <div id="buttons">
+                      <button type="submit" value="submit" name="accept" class="accept">Accept</button>
+                      <button type="submit" value="submit" name="decline" class="decline">Decline</button>
+                    </div>
                 </div>
           </form>
-
+          <script>
+            //var add = document.getElementById('guestNames');
+            //add.innerHTML = '<input type="text" name="name" style="margin-top: -10px;" placeholder="First and Last Name" required>';
+          function addGuest() {
+            var guestCount = document.getElementById('guests'); 
+            var add = document.getElementById('guestNames');
+            var form = document.getElementById('form');
+            var buttons = document.getElementById('buttons');
+            if(guestCount.value == 2)
+            {
+              add.innerHTML = '<input type="text" name="name" placeholder="First and Last Name" style="margin-top: -10px; margin-bottom: -10px" required>';
+              form.style.height = '600px';
+              buttons.style.marginTop = '10px';
+            }
+            else if(guestCount.value == 3)
+            {
+              add.innerHTML = '<input type="text" name="name" placeholder="First and Last Name" style="margin-top: -10px; margin-bottom: -10px" required><input type="text" name="name" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" required>';
+              form.style.height = '700px';
+              buttons.style.marginTop = '25px';
+            }
+            else if(guestCount.value == 4)
+            {
+              add.innerHTML = '<input type="text" name="name" placeholder="First and Last Name" style="margin-top: -10px; margin-bottom: -10px" required><input type="text" name="name" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" required><input type="text" name="name" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" required>';
+              form.style.height = '700px';
+              buttons.style.marginTop = '10px';
+            }
+            else if(guestCount.value == 5)
+            {
+              add.innerHTML = '<input type="text" name="name" placeholder="First and Last Name" style="margin-top: -10px; margin-bottom: -10px" required><input type="text" name="name" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" required><input type="text" name="name" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" required><input type="text" name="name" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" required>';
+              form.style.height = '750px';
+              buttons.style.marginTop = '10px';
+            }
+            // else {
+            //   add.innerHTML = '';
+            //   form.style.height = '590px';
+            //   buttons.style.marginTop = '';
+            // }
+          }
+          </script>
           <div class="navicon" id="navicon" style="top: 35px;">
               <a id="menu" onclick="menu()" class="nav-toggle"><span id="menuResponsive"></span></a>
               <script>
@@ -82,7 +121,6 @@
                     header.className = "header-nav";
                   }
                 }
-
                 function menuButton() {
                   var menu = document.getElementById('menu');
                   var header = document.getElementById('header');
@@ -92,7 +130,6 @@
                     menu.className = "nav-toggle";
                   }
                 }
-
                   var rsvpForm = document.getElementById('rsvpForm');
                   function showForm() {
                     if(rsvpForm.style.display == "block")
@@ -174,7 +211,6 @@
         </div>
       </div>
     </section>
-
     <section id="timeline" class="section-padding">
         <div class="container-invite">
           <div class="row">
@@ -184,7 +220,6 @@
           </div>
         </div>
       </section>
-
         <!-- <h1>How it Started!</h1> -->
         <section>
               <div class="timeline">
@@ -197,7 +232,7 @@
                 </div>
                 <div class="container right">
                   <div class="content">
-                    <h1>When I asked her</h1>
+                    <h1>Our Beginning</h1>
                     <div class="down-arrow floating-arrow"><a onclick="arrow2()" href="#invitation"><i id="arrow2-btn" class="fa fa-angle-down arrow-align"></i></a></div>
                     <p id="arrow2"></p>
                   </div>
@@ -233,7 +268,6 @@
               </div>
         </section>
         <br><br><br>
-
         <section id="eng-pics" class="section-padding">
           <div class="container-fluid">
             <div class="row">
@@ -242,7 +276,6 @@
               </div>
             </div>
             
-
             <div class="row">
               <div class="col-md-2">
                 <a class="picbox" rel="group" href="images/coverpic.JPG">
@@ -255,7 +288,6 @@
                 </a>
               </div>
           
-
         
                 <div class="col-md-2">
                   <a class="picbox" rel="group" href="images/engpic1.JPG">
@@ -268,7 +300,6 @@
                   </a>
                 </div>
             
-
                   <div class="col-md-2">
                     <a class="picbox" rel="group" href="images/engpic2.JPG">
                       <div class="img-wrap">
@@ -280,7 +311,6 @@
                     </a>
                   </div>
   
-
                     <div class="col-md-2">
                       <a class="picbox" rel="group" href="images/engpic3.JPG">
                         <div class="img-wrap">
@@ -292,7 +322,6 @@
                       </a>
                     </div>
                  
-
                       <div class="col-md-2">
                         <a class="picbox" rel="group" href="images/engpic4.JPG">
                           <div class="img-wrap">
@@ -304,7 +333,6 @@
                         </a>
                       </div>
            
-
                     
                         <div class="col-md-2">
                           <a class="picbox" rel="group" href="images/engpic5.JPG">
@@ -317,7 +345,6 @@
                           </a>
                         </div>
                   
-
                       
                           <div class="col-md-2">
                             <a class="picbox" rel="group" href="images/engpic6.JPG">
@@ -330,7 +357,6 @@
                             </a>
                           </div>
                         
-
                         
                             <div class="col-md-2">
                               <a class="picbox" rel="group" href="images/engpic7.JPG">
@@ -343,7 +369,6 @@
                               </a>
                             </div>
                           
-
                           
                               <div class="col-md-2">
                                 <a class="picbox" rel="group" href="images/engpic8.JPG">
@@ -355,7 +380,6 @@
                                   </div>
                                 </a>
                               </div>
-
                               <div class="col-md-2">
                                   <a class="picbox" rel="group" href="images/engpic9.JPG">
                                     <div class="img-wrap">
@@ -366,7 +390,6 @@
                                     </div>
                                   </a>
                                 </div>
-
                                 <div class="col-md-2">
                                     <a class="picbox" rel="group" href="images/engpic10.JPG">
                                       <div class="img-wrap">
@@ -401,20 +424,8 @@
               <iframe class="map" src="https://www.google.com/maps/d/embed?mid=1pWwffljxtl4m0_x0_JIF_kTf1Q4&hl=en"></iframe>
           </div>
         </section>
-
-        <section id="attendance" class="section-padding">
-          <h1 style="text-align: center;">Who's Attending</h1>
-          <!-- PHP pull from MySQL for List of People Attending -->
-          <table align="center">
-              <tr>
-                  <th>Name</th>
-                  <th>Guests</th>
-              </tr>
-              <?php include 'list.php'; ?>
-          </table>
-        </section>
     
-        <footer>
+        <footer class="footer">
             <div>
                 <div class="row">
                     <div class="col-sm-12 text-center">
@@ -425,17 +436,14 @@
                 </div>
             </div>
         </footer>
-
 <script src="js/scripts.min.js"></script>
 </body>
-
 <script>
   function arrow1() {
     var arrow1 = document.getElementById('arrow1'), arrow1_btn = document.getElementById('arrow1-btn');
-
       if(arrow1_btn.className == "fa fa-angle-down arrow-align")
       {
-        arrow1.innerHTML = "We first met at Panda Express in 2016.<br><img src='/weddingsite/images/panda-express.png' height='45px' width='55px'>";
+        arrow1.innerHTML = "We first met at Panda Express in December of 2015.<section id='eng-pics' class='section-padding'><div class='container-fluid'><div class='row'><div class='col-md-2'><a class='picbox' rel='group' href='images/met.JPG'><div class='img-time img-wrap'><div class='overlay'><i class='fa fa-search'></i></div><img src='images/met.JPG' alt=''/></div></a></div></div></div>";
         arrow1_btn.className = "fa fa-angle-up arrow-align";
       }
       else
@@ -444,14 +452,11 @@
         arrow1_btn.className = "fa fa-angle-down arrow-align";
       }
     }
-
-
   function arrow2() {
    var arrow2 = document.getElementById('arrow2'), arrow2_btn = document.getElementById('arrow2-btn');
-
     if(arrow2_btn.className == "fa fa-angle-down arrow-align")
       {
-        arrow2.innerHTML = "The day was September 26, 2016 and that's when the journey started. Many struggles between working together and balancing school put our relationship to the ultimate test.";
+        arrow2.innerHTML = "On September 26, 2016 I mustarded up the courage to ask Caley to be my girlfriend. Little did we know, it was the beginning to a new chapter of our lives.<section id='eng-pics' class='section-padding'><div class='container-fluid'><div class='row'><div class='col-md-2'><a class='picbox' rel='group' href='images/date.JFIF'><div class='img-time img-wrap'><div class='overlay'><i class='fa fa-search'></i></div><img src='images/date.JFIF' alt=''/></div></a></div></div></div>";
         arrow2_btn.className = "fa fa-angle-up arrow-align";
       }
       else
@@ -462,10 +467,9 @@
   }
   function arrow3() {
     var arrow3 = document.getElementById('arrow3'), arrow3_btn = document.getElementById('arrow3-btn');
-
     if(arrow3_btn.className == "fa fa-angle-down arrow-align")
       {
-        arrow3.innerHTML = "On the foggy morning of August 26, 2018 the big question was popped off the cliffs of Muir Beach Overlook.<section id='eng-pics' class='section-padding'><div class='container-fluid'><div class='row'><div class='col-md-2'><a class='picbox' rel='group' href='images/eng1.JPG'><div class='img-wrap' style='width: 200px; hieght: 150px; margin-left: 100px;'><div class='overlay'><i class='fa fa-search'></i></div><img src='images/eng1.JPG' alt=''/></div></a></div></div></div>";
+        arrow3.innerHTML = "On the foggy morning of August 26, 2018 the big question was popped off the cliffs of Muir Beach Overlook.<section id='eng-pics' class='section-padding'><div class='container-fluid'><div class='row'><div class='col-md-2'><a class='picbox' rel='group' href='images/eng1.JPG'><div class='img-time2 img-wrap'><div class='overlay'><i class='fa fa-search'></i></div><img src='images/eng1.JPG' alt=''/></div></a></div></div></div>";
         //<section id='eng-pics' class='section-padding'><div class='container-fluid'><div class='row'><div class='col-md-2'><a class='picbox' rel='group' href='images/coverpic.JPG'><div class='img-wrap' style='width: 155px; hieght: 150px'><div class='overlay'><i class='fa fa-search'></i></div><img src='images/overlook.JPG' alt=''/></div></a></div></div></div>
         arrow3_btn.className = "fa fa-angle-up arrow-align";
       }
@@ -477,10 +481,9 @@
   }
   function arrow4() {
     var arrow4 = document.getElementById('arrow4'), arrow4_btn = document.getElementById('arrow4-btn');
-
     if(arrow4_btn.className == "fa fa-angle-down arrow-align")
       {
-        arrow4.innerHTML = "We both love to travel! We have gone to Thailand during the summer of 2018. Soon after to Ireland, France, and England of 2019 on a mission to see the world.<section id='eng-pics' class='section-padding'><div class='container-fluid'><div class='row'><div class='col-md-2'><a class='picbox' rel='group' href='images/thailand1.JPG'><div class='img-wrap' style='width: 200px; hieght: 150px; margin-left: 100px;'><div class='overlay'><i class='fa fa-search'></i></div><img src='images/thailand1.JPG' alt=''/></div></a></div></div></div>";
+        arrow4.innerHTML = "We went to Thailand during the summer of 2018. We traveled to Ireland, France, and England in 2019.<section id='eng-pics' class='section-padding'><div class='container-fluid'><div class='row'><div class='col-md-2'><a class='picbox' rel='group' href='images/thailand3.JPG'><div class='img-time3 img-wrap'><div class='overlay'><i class='fa fa-search'></i></div><img src='images/thailand3.JPG' alt=''/></div></a></div></div></div>";
         arrow4_btn.className = "fa fa-angle-up arrow-align";
       }
       else
@@ -491,7 +494,6 @@
   }
   function arrow5() {
     var arrow5 = document.getElementById('arrow5'), arrow5_btn = document.getElementById('arrow5-btn');
-
     if(arrow5_btn.className == "fa fa-angle-down arrow-align")
       {
         arrow5.innerHTML = "The big day is on September 26, 2020 at our beautiful venue" + '<a href="#venue"><br>' + "Lone Oaks LongHorns Ranch in Marysville, CA.</a>";
@@ -506,10 +508,9 @@
   function arrow6() {
     var arrow6 = document.getElementById('arrow6');
     var arrow6_btn = document.getElementById('arrow6-btn');
-
     if(arrow6_btn.className == "fa fa-angle-down arrow-align")
       {
-        arrow6.innerHTML = "Our goals are to settle down and live a happy life!";
+        arrow6.innerHTML = "In the next coming years we plan to purchase a home and we would like to travel as much as possible.";
         arrow6_btn.className = "fa fa-angle-up arrow-align";
       }
       else
