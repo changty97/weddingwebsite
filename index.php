@@ -77,23 +77,29 @@
               form.style.height = '600px';
               buttons.style.marginTop = '10px';
             }
-            if(guestCount.value == 3)
+            else if(guestCount.value == 3)
             {
               add.innerHTML = '<input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: -10px; margin-bottom: -10px" required><input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" required>';
               form.style.height = '700px';
               buttons.style.marginTop = '25px';
             }
-            if(guestCount.value == 4)
+            else if(guestCount.value == 4)
             {
               add.innerHTML = '<input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: -10px; margin-bottom: -10px" required><input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" required><input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" required>';
               form.style.height = '700px';
               buttons.style.marginTop = '10px';
             }
-            if(guestCount.value == 5)
+            else if(guestCount.value == 5)
             {
               add.innerHTML = '<input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: -10px; margin-bottom: -10px" required><input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" required><input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" required><input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" required>';
               form.style.height = '750px';
               buttons.style.marginTop = '10px';
+            }
+            else
+            {
+              add.innerHTML = '';
+              form.style.height = '';
+              buttons.style.marginTop = '';
             }
           }
           </script>

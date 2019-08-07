@@ -31,7 +31,7 @@ if($conn->connect_error) {
 }
 
 //Check to see if the Accept button was selected else it was Declined
-if($accept) {
+if(isset($accept)) {
     echo "<h1 class='text'><b>Thank You!</b></h1><br>";
     foreach($name as $index) {
         $i = implode(", ",$index);
@@ -49,7 +49,7 @@ else {
     echo "<h1 class='text'><b>Thank You!</b></h1><br>";
     foreach($name as $index) {
         $i = implode(", ",$index);
-        $sql = "INSERT INTO `accept` (`name`, `guests`) VALUES ('$i','$guests')";
+        $sql = "INSERT INTO `decline` (`name`, `guests`) VALUES ('$i','$guests')";
       }
     
     if($conn->query($sql) === TRUE) {
@@ -89,7 +89,7 @@ $conn->close();
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <img src="./images/weddinglogo.png" class="img" style="width: 200px; height: 80px;"><br>
+    <img src="./images/weddinglogo2.png" class="img" style="width: 200px; height: 80px;"><br>
     <a href="index.php" class="text" style="text-decoration: none;"><center>Back to Home Page</center></a>
 
         <footer>
