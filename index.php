@@ -56,7 +56,7 @@
                         <p class="details">8031 Highway 70 Marysville, California 95901</p>
                         <p class= "line">________________________________________</p>
                         <input type="number" name="guests" placeholder="# of Guests" min="1" max="5" required id="guests" onkeyup="addGuest()">
-                        <!-- <input type="text" name="name" style="margin-top: -10px;" placeholder="First and Last Name" required> -->
+                        <input type="text" name="name[]" style="margin-top: -10px;" placeholder="First and Last Name" required>
                         <div id="guestNames"></div>
                     </div>
                     <div id="buttons">
@@ -66,8 +66,6 @@
                 </div>
           </form>
           <script>
-            //var add = document.getElementById('guestNames');
-            //add.innerHTML = '<input type="text" name="name" style="margin-top: -10px;" placeholder="First and Last Name" required>';
           function addGuest() {
             var guestCount = document.getElementById('guests'); 
             var add = document.getElementById('guestNames');
@@ -75,33 +73,28 @@
             var buttons = document.getElementById('buttons');
             if(guestCount.value == 2)
             {
-              add.innerHTML = '<input type="text" name="name" placeholder="First and Last Name" style="margin-top: -10px; margin-bottom: -10px" required>';
+              add.innerHTML = '<input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: -10px; margin-bottom: -10px" required>';
               form.style.height = '600px';
               buttons.style.marginTop = '10px';
             }
-            else if(guestCount.value == 3)
+            if(guestCount.value == 3)
             {
-              add.innerHTML = '<input type="text" name="name" placeholder="First and Last Name" style="margin-top: -10px; margin-bottom: -10px" required><input type="text" name="name" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" required>';
+              add.innerHTML = '<input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: -10px; margin-bottom: -10px" required><input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" required>';
               form.style.height = '700px';
               buttons.style.marginTop = '25px';
             }
-            else if(guestCount.value == 4)
+            if(guestCount.value == 4)
             {
-              add.innerHTML = '<input type="text" name="name" placeholder="First and Last Name" style="margin-top: -10px; margin-bottom: -10px" required><input type="text" name="name" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" required><input type="text" name="name" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" required>';
+              add.innerHTML = '<input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: -10px; margin-bottom: -10px" required><input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" required><input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" required>';
               form.style.height = '700px';
               buttons.style.marginTop = '10px';
             }
-            else if(guestCount.value == 5)
+            if(guestCount.value == 5)
             {
-              add.innerHTML = '<input type="text" name="name" placeholder="First and Last Name" style="margin-top: -10px; margin-bottom: -10px" required><input type="text" name="name" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" required><input type="text" name="name" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" required><input type="text" name="name" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" required>';
+              add.innerHTML = '<input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: -10px; margin-bottom: -10px" required><input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" required><input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" required><input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" required>';
               form.style.height = '750px';
               buttons.style.marginTop = '10px';
             }
-            // else {
-            //   add.innerHTML = '';
-            //   form.style.height = '590px';
-            //   buttons.style.marginTop = '';
-            // }
           }
           </script>
           <div class="navicon" id="navicon" style="top: 35px;">
