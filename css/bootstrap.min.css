@@ -101,6 +101,10 @@ ul {
     button {
         width: 177.5px;
     }
+
+    .container {
+        width: 600px;
+    }
 }
 
 @media (min-width: 650px) {
@@ -238,3 +242,4 @@ img {
 img {
     border: 0;
 }
+

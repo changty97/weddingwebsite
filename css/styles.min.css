@@ -748,9 +748,7 @@ border-color: transparent white transparent transparent;
    left: 0;
    bottom: 0;
    width: 100%;
-   background-color: rgba(189, 189, 189, 0.61);
+   background-color: rgba(27, 27, 27, 0.61); /* rgba(189, 189, 189, 0.61)*/
    color: white;
    text-align: center;
  }
-
- 
