@@ -22,6 +22,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/jquery/3.4.1/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/js/foundation/6.3.1/foundation.js"></script>
+    <script type="text/javascript" src="/slick-1.4.1/slick/slick.js"></script>
 </head>
 <style>
 /* .carousel-inner < img {
@@ -48,13 +51,19 @@
 .carousel-control.right {
   background-image: none;
 }
+
+ #map {
+        height: 350px;
+        width: 560px;
+        margin: auto;
+      }
 </style>
 <body>
   <section class="hero">
     <section id="nav" class="navigation">
       <header id="head" style="border-bottom: 1px solid rgba(255, 255, 255, 0.2); padding: 20px 0px;">
         <div class="header-content">
-          <a href="index.php"><img src="./images/weddinglogo2.png" class="logo"></a>
+          <a href="index.php"><img src="images/weddinglogo2.png" class="logo" alt="Changber Wedding logo"></a>
           <div id="header" onclick="menuButton()" class="header-nav">
               <nav>
                   <ul class="primary-nav">
@@ -63,6 +72,7 @@
                       <li><a href="#eng-pics" style="text-decoration: none;">Engagment</a></li>
                       <li><a href="#venue" style="text-decoration: none;">Venue</a></li>
                       <li><a href="#hotels" style="text-decoration: none;">Hotels & Airbnb's</a></li>
+                      <li><a href="#song" style="text-decoration: none;">Song Request?</a></li>
                   </ul>
                   <!-- RSVP Button -->
                   <ul id="rsvp" onclick="showForm()" class="member-actions" style="top: 35px;">
@@ -83,7 +93,7 @@
                         <p class="details">8031 Highway 70 Marysville, California 95901</p>
                         <p class= "line">________________________________________</p>
                         <input type="number" name="guests" placeholder="# of Guests" min="1" max="5" required id="guests" onkeyup="addGuest()">
-                        <input type="text" name="name[]" style="margin-top: -10px;" placeholder="First and Last Name" required>
+                        <input type="text" name="name[]" style="margin-top: -10px;" placeholder="First and Last Name" pattern="^(?:((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-.\s])){1,}(['’,\-\.]){0,1}){2,}(([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-. ]))*(([ ]+){0,1}(((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){1,})(['’\-,\.]){0,1}){2,}((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){2,})?)*)$" required>
                         <div id="guestNames"></div>
                     </div>
                     <div id="buttons">
@@ -92,122 +102,15 @@
                     </div>
                 </div>
           </form>
-          <script>
-          function addGuest() {
-            var guestCount = document.getElementById('guests'); 
-            var add = document.getElementById('guestNames');
-            var form = document.getElementById('form');
-            var buttons = document.getElementById('buttons');
-            if(guestCount.value == 2)
-            {
-              add.innerHTML = '<input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: -10px; margin-bottom: -10px" required>';
-              form.style.height = '600px';
-              buttons.style.marginTop = '10px';
-            }
-            else if(guestCount.value == 3)
-            {
-              add.innerHTML = '<input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: -10px; margin-bottom: -10px" required><input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" required>';
-              form.style.height = '700px';
-              buttons.style.marginTop = '25px';
-            }
-            else if(guestCount.value == 4)
-            {
-              add.innerHTML = '<input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: -10px; margin-bottom: -10px" required><input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" required><input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" required>';
-              form.style.height = '700px';
-              buttons.style.marginTop = '10px';
-            }
-            else if(guestCount.value == 5)
-            {
-              add.innerHTML = '<input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: -10px; margin-bottom: -10px" required><input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" required><input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" required><input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" required>';
-              form.style.height = '750px';
-              buttons.style.marginTop = '10px';
-            }
-            else
-            {
-              add.innerHTML = '';
-              form.style.height = '';
-              buttons.style.marginTop = '';
-            }
-          }
-          </script>
+
           <div class="navicon" id="navicon" style="top: 35px;">
               <a id="menu" onclick="menu()" class="nav-toggle"><span id="menuResponsive"></span></a>
-              <script>
-                function menu() {
-                  var menu = document.getElementById('menu');
-                  var header = document.getElementById('header');
-                  if(menu.className == 'nav-toggle') 
-                  {
-                    menu.className = "nav-toggle active";
-                    header.className = "header-nav open";
-                  }
-                  else 
-                  {
-                    menu.className = "nav-toggle";
-                    header.className = "header-nav";
-                  }
-                }
-                function menuButton() {
-                  var menu = document.getElementById('menu');
-                  var header = document.getElementById('header');
-                  if(header.className == 'header-nav open')
-                  {
-                    header.className = "header-nav";
-                    menu.className = "nav-toggle";
-                  }
-                }
-                  var rsvpForm = document.getElementById('rsvpForm');
-                  function showForm() {
-                    if(rsvpForm.style.display == "block")
-                    {
-                        rsvpForm.style.display = "none";
-                    }
-                    else
-                    {
-                        rsvpForm.style.display = "block";
-                    }
-                  }
-                    
-                window.onclick = function(event) {
-                    if (event.target == rsvpForm) {
-                        rsvpForm.style.display = "none";
-                    }
-                }
-              
-              </script>
           </div>
         </div>
       </header>
     </section>
   </section>
         
-        <script>
-                var nav = document.getElementById('nav');
-                var head = document.getElementById('head');
-                var rsvp = document.getElementById('rsvp');
-                var navicon = document.getElementById('navicon');
-                var menuResponsive = document.getElementById('menuResponsive');
-                window.onscroll = function() {
-                    if(window.pageYOffset > 650) {
-                        nav.className = "navigation fixed";
-                        nav.style.backgroundColor = "rgba(189, 189, 189, 0.61)"; //rgba(239, 213, 186, 0.88)
-                        head.style.borderBottom = "none";
-                        head.style.padding = "18px 0px";
-                        rsvp.style.top = "25px";
-                        navicon.style.top = "45px";
-                        menuResponsive.style.bottom = "35px";
-                    }
-                    else {
-                        nav.style.background = "transparent";
-                        nav.style.className = "navigation";
-                        head.style.borderBottom = "1px solid rgba(255, 255, 255, 0.2)";
-                        head.style.padding = "20px 0px";
-                        rsvp.style.top = "30px";
-                        navicon.style.top = "35px";
-                        menuResponsive.style.bottom = "25px";
-                    }
-                }
-            </script>
     <section class="section-padding">
       <div class="conatiner-invite">
         <div class="row">
@@ -216,6 +119,7 @@
               <p>The date is Septemeber 26th, 2020 and we would like you to be part of it.</p> 
               <h1><b>Countdown</b></h1>
               <script>
+                //Countdown Function
                 var today = new Date();
                 var BigDay = new Date("September 26, 2020");
                 var msPerDay = 24 * 60 * 60 * 1000;
@@ -223,14 +127,16 @@
                 var e_daysLeft = timeLeft / msPerDay;
                 var daysLeft = Math.floor(e_daysLeft);
                 var yearsLeft = 0;
-                if (daysLeft > 365) {
-                  yearsLeft = Math.floor(daysLeft / 365);
-                  daysLeft = daysLeft % 365;
-                }
+
+                  if (daysLeft > 365) {
+                    yearsLeft = Math.floor(daysLeft / 365);
+                    daysLeft = daysLeft % 365;
+                  }
+                  
                 var e_hrsLeft = (e_daysLeft - daysLeft) * 24;
                 var hrsLeft = Math.floor(e_hrsLeft%24);
                 var minsLeft = Math.floor(((e_hrsLeft - hrsLeft) * 60)%60);
-                document.write("<h1><b>" + yearsLeft + " year " + daysLeft + " days " + hrsLeft + " hours " + minsLeft + " minutes</b></h1>");
+                document.write("<h1><b>" + daysLeft + " days " + hrsLeft + " hours " + minsLeft + " minutes</b></h1>");
               </script>
               <br><hr>
           </div>
@@ -479,32 +385,84 @@
 
         <section id="hotels" class="section-padding">
           <h1 style="text-align: center;">Hotels Near By</h1>
-          <h3 style="text-align: center;">Note: Hotels are most expensive during this season.</h3>
-          <!-- Google Maps API for the venue -->
-          <div align="center" style="display:block; margin-left: auto; margin-right:auto">
-              <iframe class="map" src="https://www.google.com/maps/d/embed?mid=1pWwffljxtl4m0_x0_JIF_kTf1Q4&hl=en"></iframe>
-          </div>
         </section>
+        <a href="https://www.hardrockhotels.com/sacramento" rel=""><img src="images/hardrockSAC.PNG" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 15px;" class="hardrock" id="hardrock"></a>
+        	<!-- Google Maps API for the venue -->
+        	<div id="map"></div>
+        <style>
+          .airbnb {
+            margin-left: 45px;
+          }
 
+          .airbnb-frame {
+              width: 450px;
+              height: 300px;
+              margin: auto;
+          }
+
+          @media (max-width: 650px) {
+            .airbnb {
+               margin-left: auto;
+            }
+          }
+          @media (max-width: 750px) {
+            .hardrock {
+                width: 95%;
+              }
+          }
+
+          @media (max-width: 498px) {
+            .airbnb {
+               margin-left: 25px;
+            }
+
+          .airbnb-frame {
+              width: 100%;
+              height: auto;
+            }
+          }
+        </style>
         <section id="airbnb" class="section-padding">
           <h1 style="text-align: center;">AirBnB's Near By</h1>
-          <div class="container-fluid">
+          <div class="container-fluid airbnb">
             <div class="row">
                 <div class="col-lrg-1">
-                  <div class="airbnb-embed-frame" data-id="20305254" data-view="home" style="width:450px;height:300px;margin:auto"><a href="https://www.airbnb.com/rooms/20305254?s=66&amp;shared_item_type=1&amp;virality_entry_point=1&amp;sharer_id=185951496&amp;source=embed_widget">View On Airbnb</a><a href="https://www.airbnb.com/rooms/20305254?s=66&amp;shared_item_type=1&amp;virality_entry_point=1&amp;sharer_id=185951496&amp;source=embed_widget" rel="nofollow">Home in the heart of downtown Marysville, close to Yuba City, Oroville, and Sacramento!</a><script async="" src="https://www.airbnb.com/embeddable/airbnb_jssdk"></script></div>
+                  <div class="airbnb-embed-frame airbnb-frame" data-id="20305254" data-view="home"><a href="https://www.airbnb.com/rooms/20305254?s=66&amp;shared_item_type=1&amp;virality_entry_point=1&amp;sharer_id=185951496&amp;source=embed_widget">View On Airbnb</a><a href="https://www.airbnb.com/rooms/20305254?s=66&amp;shared_item_type=1&amp;virality_entry_point=1&amp;sharer_id=185951496&amp;source=embed_widget" rel="nofollow">Home in the heart of downtown Marysville, close to Yuba City, Oroville, and Sacramento!</a><script async="" src="https://www.airbnb.com/embeddable/airbnb_jssdk"></script></div>
                 </div>
                 <div class="col-lrg-1">
-                  <div class="airbnb-embed-frame" data-id="25034481" data-view="home" style="width:450px;height:300px;margin:auto"><a href="https://www.airbnb.com/rooms/25034481?s=66&amp;shared_item_type=1&amp;virality_entry_point=1&amp;sharer_id=185951496&amp;source=embed_widget">View On Airbnb</a><a href="https://www.airbnb.com/rooms/25034481?s=66&amp;shared_item_type=1&amp;virality_entry_point=1&amp;sharer_id=185951496&amp;source=embed_widget" rel="nofollow">Serene Country Home</a><script async="" src="https://www.airbnb.com/embeddable/airbnb_jssdk"></script></div>
+                  <div class="airbnb-embed-frame airbnb-frame" data-id="25034481" data-view="home"><a href="https://www.airbnb.com/rooms/25034481?s=66&amp;shared_item_type=1&amp;virality_entry_point=1&amp;sharer_id=185951496&amp;source=embed_widget">View On Airbnb</a><a href="https://www.airbnb.com/rooms/25034481?s=66&amp;shared_item_type=1&amp;virality_entry_point=1&amp;sharer_id=185951496&amp;source=embed_widget" rel="nofollow">Serene Country Home</a><script async="" src="https://www.airbnb.com/embeddable/airbnb_jssdk"></script></div>
                 </div>
                 <div class="col-lrg-1">
-                  <div class="airbnb-embed-frame" data-id="7619516" data-view="home" style="width:450px;height:300px;margin:auto"><a href="https://www.airbnb.com/rooms/7619516?s=66&amp;shared_item_type=1&amp;virality_entry_point=1&amp;sharer_id=185951496&amp;source=embed_widget">View On Airbnb</a><a href="https://www.airbnb.com/rooms/7619516?s=66&amp;shared_item_type=1&amp;virality_entry_point=1&amp;sharer_id=185951496&amp;source=embed_widget" rel="nofollow">Super Comfortable Queen Bed - 5 Star Super Host</a><script async="" src="https://www.airbnb.com/embeddable/airbnb_jssdk"></script></div>
+                  <div class="airbnb-embed-frame airbnb-frame" data-id="7619516" data-view="home"><a href="https://www.airbnb.com/rooms/7619516?s=66&amp;shared_item_type=1&amp;virality_entry_point=1&amp;sharer_id=185951496&amp;source=embed_widget">View On Airbnb</a><a href="https://www.airbnb.com/rooms/7619516?s=66&amp;shared_item_type=1&amp;virality_entry_point=1&amp;sharer_id=185951496&amp;source=embed_widget" rel="nofollow">Super Comfortable Queen Bed - 5 Star Super Host</a><script async="" src="https://www.airbnb.com/embeddable/airbnb_jssdk"></script></div>
                 </div>
                 <div class="col-lrg-1">
-                  <div class="airbnb-embed-frame" data-id="7619521" data-view="home" style="width:450px;height:300px;margin:auto"><a href="https://www.airbnb.com/rooms/7619521?s=66&amp;shared_item_type=1&amp;virality_entry_point=1&amp;sharer_id=185951496&amp;source=embed_widget">View On Airbnb</a><a href="https://www.airbnb.com/rooms/7619521?s=66&amp;shared_item_type=1&amp;virality_entry_point=1&amp;sharer_id=185951496&amp;source=embed_widget" rel="nofollow">Ultra Comfy Queen Bed - 5 Star Super Host</a><script async="" src="https://www.airbnb.com/embeddable/airbnb_jssdk"></script></div>
+                  <div class="airbnb-embed-frame airbnb-frame" data-id="7619521" data-view="home"><a href="https://www.airbnb.com/rooms/7619521?s=66&amp;shared_item_type=1&amp;virality_entry_point=1&amp;sharer_id=185951496&amp;source=embed_widget">View On Airbnb</a><a href="https://www.airbnb.com/rooms/7619521?s=66&amp;shared_item_type=1&amp;virality_entry_point=1&amp;sharer_id=185951496&amp;source=embed_widget" rel="nofollow">Ultra Comfy Queen Bed - 5 Star Super Host</a><script async="" src="https://www.airbnb.com/embeddable/airbnb_jssdk"></script></div>
                 </div>
               </div>
             </div>
         </section>
+
+         <section id="song" class="section-padding">
+        <div class="container-invite">
+          <div class="row">
+            <div class="col-md-12 text-center">
+                <h1>Request a Song</h1>
+            </div>
+          </div>
+        </div>
+      <form action="submit.php" method="post" >
+            <div class="top"></div>
+                <div class="form content" style="height: 200px; margin: auto">
+                    <div class ="info">
+                        <input type="text" name="song" style="margin-top: 15px;" placeholder="Song Title" required>
+                        <input type="text" name="artist" style="margin-top: -10px;" placeholder="Artist" required>
+                    </div>
+                    <div style="text-align: center;width: 100px; margin:0 auto;">
+                      <button type="submit" value="submit" name="submit" class="btn-white btn-small" style="width: auto; background-color: #d7d7d7; margin-top: -15px;">Submit</button>
+                    </div>
+                </div>
+          </form>
+      </section>
 
         <footer class="footer">
             <div>
@@ -512,94 +470,14 @@
                     <div class="col-sm-12 text-center">
                         <span class="to-top-wrapper"><a href="#top" class="to-top"><i class="fa fa-angle-up" style="font-size: 25px"></i></a></span>
                         <p>Developed by Tyler Chang</p>
-                        <small>&copy; Copyright 2019, Changber Corporation</small>
+                        <a href="https://changberwedding.com/list.php" style="text-decoration: none;">Who is Going?</a><br>
+                        <small>&copy; Copyright 2019,  All Rights Reserved</small>
                     </div>
                 </div>
             </div>
         </footer>
 <script src="js/scripts.min.js"></script>
-</body>
-<script>
-  function arrow1() {
-    var arrow1 = document.getElementById('arrow1'), arrow1_btn = document.getElementById('arrow1-btn');
-      if(arrow1_btn.className == "fa fa-angle-down arrow-align")
-      {
-        arrow1.innerHTML = "We first met at Panda Express in December of 2015.<section id='eng-pics' class='section-padding'><div class='container-fluid'><div class='row'><div class='col-md-2'><a class='picbox' rel='group' href='images/met.JPG'><div class='img-time img-wrap'><div class='overlay'><i class='fa fa-search'></i></div><img src='images/met.JPG' alt=''/></div></a></div></div></div>";
-        arrow1_btn.className = "fa fa-angle-up arrow-align";
-      }
-      else
-      {
-        arrow1.innerHTML = "";
-        arrow1_btn.className = "fa fa-angle-down arrow-align";
-      }
-    }
-  function arrow2() {
-   var arrow2 = document.getElementById('arrow2'), arrow2_btn = document.getElementById('arrow2-btn');
-    if(arrow2_btn.className == "fa fa-angle-down arrow-align")
-      {
-        arrow2.innerHTML = "On September 26, 2016 I mustarded up the courage to ask Caley to be my girlfriend. Little did we know, it was the beginning to a new chapter of our lives.<section id='eng-pics' class='section-padding'><div class='container-fluid'><div class='row'><div class='col-md-2'><a class='picbox' rel='group' href='images/date.JFIF'><div class='img-time img-wrap'><div class='overlay'><i class='fa fa-search'></i></div><img src='images/date.JFIF' alt=''/></div></a></div></div></div>";
-        arrow2_btn.className = "fa fa-angle-up arrow-align";
-      }
-      else
-      {
-        arrow2.innerHTML = "";
-        arrow2_btn.className = "fa fa-angle-down arrow-align";
-      }
-  }
-  function arrow3() {
-    var arrow3 = document.getElementById('arrow3'), arrow3_btn = document.getElementById('arrow3-btn');
-    if(arrow3_btn.className == "fa fa-angle-down arrow-align")
-      {
-        arrow3.innerHTML = "On the foggy morning of August 26, 2018 the big question was popped off the cliffs of Muir Beach Overlook.<section id='eng-pics' class='section-padding'><div class='container-fluid'><div class='row'><div class='col-md-2'><a class='picbox' rel='group' href='images/eng1.JPG'><div class='img-time2 img-wrap'><div class='overlay'><i class='fa fa-search'></i></div><img src='images/eng1.JPG' alt=''/></div></a></div></div></div>";
-        //<section id='eng-pics' class='section-padding'><div class='container-fluid'><div class='row'><div class='col-md-2'><a class='picbox' rel='group' href='images/coverpic.JPG'><div class='img-wrap' style='width: 155px; hieght: 150px'><div class='overlay'><i class='fa fa-search'></i></div><img src='images/overlook.JPG' alt=''/></div></a></div></div></div>
-        arrow3_btn.className = "fa fa-angle-up arrow-align";
-      }
-      else
-      {
-        arrow3.innerHTML = "";
-        arrow3_btn.className = "fa fa-angle-down arrow-align";
-      }
-  }
-  function arrow4() {
-    var arrow4 = document.getElementById('arrow4'), arrow4_btn = document.getElementById('arrow4-btn');
-    if(arrow4_btn.className == "fa fa-angle-down arrow-align")
-      {
-        arrow4.innerHTML = "We went to Thailand during the summer of 2018. We traveled to Ireland, France, and England in 2019.<section id='eng-pics' class='section-padding'><div class='container-fluid'><div class='row'><div class='col-md-2'><a class='picbox' rel='group' href='images/thailand3.JPG'><div class='img-time3 img-wrap'><div class='overlay'><i class='fa fa-search'></i></div><img src='images/thailand3.JPG' alt=''/></div></a></div></div></div>";
-        arrow4_btn.className = "fa fa-angle-up arrow-align";
-      }
-      else
-      {
-        arrow4.innerHTML = "";
-        arrow4_btn.className = "fa fa-angle-down arrow-align";
-      }
-  }
-  function arrow5() {
-    var arrow5 = document.getElementById('arrow5'), arrow5_btn = document.getElementById('arrow5-btn');
-    if(arrow5_btn.className == "fa fa-angle-down arrow-align")
-      {
-        arrow5.innerHTML = "The big day is on September 26, 2020 at our beautiful venue" + '<a href="#venue"><br>' + "Lone Oaks LongHorns Ranch in Marysville, CA.</a>";
-        arrow5_btn.className = "fa fa-angle-up arrow-align";
-      }
-      else
-      {
-        arrow5.innerHTML = "";
-        arrow5_btn.className = "fa fa-angle-down arrow-align";
-      }
-  }
-  function arrow6() {
-    var arrow6 = document.getElementById('arrow6');
-    var arrow6_btn = document.getElementById('arrow6-btn');
-    if(arrow6_btn.className == "fa fa-angle-down arrow-align")
-      {
-        arrow6.innerHTML = "In the next coming years we plan to purchase a home and we would like to travel as much as possible.";
-        arrow6_btn.className = "fa fa-angle-up arrow-align";
-      }
-      else
-      {
-        arrow6.innerHTML = "";
-        arrow6_btn.className = "fa fa-angle-down arrow-align";
-      }
-  }
-  
+<script type="text/javascript" src="./js/main.js"></script>
 </script>
+</body> 
 </html>
