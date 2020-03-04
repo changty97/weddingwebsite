@@ -478,6 +478,7 @@
         </footer>
 <script src="js/scripts.min.js"></script>
 <script type="text/javascript" src="./js/main.js"></script>
+
 </script>
 </body> 
 </html>
