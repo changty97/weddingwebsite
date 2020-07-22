@@ -96,7 +96,7 @@ nav ul.primary-nav li, nav ul.member-actions li {
 @media screen and (max-height: 701px) {
     .form {
         height: 450px;
-        width: 800px;
+        width: 750px;
         margin-left: 150px;
         margin-top: -25px;
     }
@@ -105,11 +105,17 @@ nav ul.primary-nav li, nav ul.member-actions li {
         margin: 5px 400px 5px 0px;
       }
 
-    .form input {
+    /* .form  */
+    .nameInput {
         margin-left: 385px;
-        margin-top: -400px;
+        /* margin-top: -400px;
         margin-bottom: 20px;
-        width: 50%;
+        */
+        width: 45%;
+    }
+
+    .guestInput {
+        margin-top: -400px;
     }
 
     button.accept {
@@ -363,6 +369,10 @@ nav ul.primary-nav li, nav ul.member-actions li {
 @media screen and (max-width: 640px) {
     .hero .hero-content {
         padding-top: 100%;
+    }
+
+    .song {
+        width: 100%;
     }
 
     #eng-pics .img-wrap i {

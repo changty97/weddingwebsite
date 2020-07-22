@@ -3,14 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="user-scalable=1.0, width=device-width, initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
     <title>Our Happliy Ever After!</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <script type="text/javascript" src="glossorydev.json"></script>
-    <link rel="stylesheet" type="text/css" href="./src/assets/mystyle.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.min.css">
     <link rel="stylesheet" href="css/queries.css">
@@ -22,9 +18,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/js/jquery/3.4.1/jquery-3.4.1.min.js"></script>
+    <!-- <script type="text/javascript" src="/js/jquery/3.4.1/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="/js/foundation/6.3.1/foundation.js"></script>
-    <script type="text/javascript" src="/slick-1.4.1/slick/slick.js"></script>
+    <script type="text/javascript" src="/slick-1.4.1/slick/slick.js"></script> -->
 </head>
 <style>
 /* .carousel-inner < img {
@@ -57,6 +53,12 @@
         width: 560px;
         margin: auto;
       }
+
+@media screen and (max-width: 640px) {
+  #map {
+        width: 100%;
+      }
+}
 </style>
 <body>
   <section class="hero">
@@ -67,12 +69,11 @@
           <div id="header" onclick="menuButton()" class="header-nav">
               <nav>
                   <ul class="primary-nav">
-                      <li><a href="index.php" style="text-decoration: none;">Home</a></li>
-                      <li><a href="#timeline" style="text-decoration: none;">Timeline</a></li>
-                      <li><a href="#eng-pics" style="text-decoration: none;">Engagment</a></li>
-                      <li><a href="#venue" style="text-decoration: none;">Venue</a></li>
-                      <li><a href="#hotels" style="text-decoration: none;">Hotels & Airbnb's</a></li>
-                      <li><a href="#song" style="text-decoration: none;">Song Request?</a></li>
+                      <!-- <li><a href="index.php" onclick="showForm2()" style="text-decoration: none;">Home</a></li> -->
+                      <li><a href="#timeline" onclick="showForm2()" style="text-decoration: none;">Timeline</a></li>
+                      <li><a href="#eng-pics" onclick="showForm2()" style="text-decoration: none;">Engagment</a></li>
+                      <li><a href="#venue" onclick="showForm2()" style="text-decoration: none;">Venue</a></li>
+                      <li><a href="#hotels" onclick="showForm2()" style="text-decoration: none;">Hotels & Airbnb's</a></li>
                   </ul>
                   <!-- RSVP Button -->
                   <ul id="rsvp" onclick="showForm()" class="member-actions" style="top: 35px;">
@@ -91,14 +92,16 @@
                         <h1 class="head1">Caley & Tyler</h1><p class= "line">________________________________________</p>
                         <h2 class="head2">The Details</h2><p class="details">Saturday, September 26, 2020</p><p class="details">5:00 PM</p><br><h2 class="head2">Ceremony & Reception</h2>
                         <p class="details">8031 Highway 70 Marysville, California 95901</p>
-                        <p class= "line">________________________________________</p>
-                        <input type="number" name="guests" placeholder="# of Guests" min="1" max="5" required id="guests" onkeyup="addGuest()">
-                        <input type="text" name="name[]" style="margin-top: -10px;" placeholder="First and Last Name" pattern="^(?:((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-.\s])){1,}(['’,\-\.]){0,1}){2,}(([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-. ]))*(([ ]+){0,1}(((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){1,})(['’\-,\.]){0,1}){2,}((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){2,})?)*)$" required>
+                        <a href="#song" onclick="showForm2()" style="text-decoration: none; margin-left: 130px;">Song Request</a>
+                        <p class= "line" id="line2">________________________________________</p>
+                        <div id="buttons1"></div>
+                        <input type="number" name="guests" class="nameInput guestInput" placeholder="# of Guests" min="1" max="5" required id="guests" onkeyup="addGuest()">
+                        <input type="text" name="name[]" class="nameInput" placeholder="First and Last Name" pattern="^(?:((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-.\s])){1,}(['’,\-\.]){0,1}){2,}(([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-. ]))*(([ ]+){0,1}(((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){1,})(['’\-,\.]){0,1}){2,}((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){2,})?)*)$" required>
                         <div id="guestNames"></div>
                     </div>
-                    <div id="buttons">
-                      <button type="submit" value="submit" name="accept" class="accept">Accept</button>
-                      <button type="submit" value="submit" name="decline" class="decline">Decline</button>
+                    <div id="buttons2">
+                      <button type="submit" value="submit" id="accept" name="accept" class="accept">Accept</button>
+                      <button type="submit" value="submit" id="decline" name="decline" class="decline">Decline</button>
                     </div>
                 </div>
           </form>
@@ -117,27 +120,7 @@
           <div class="col-md-12 text-center">
               <h1>We're Getting Hitched!</h1>
               <p>The date is Septemeber 26th, 2020 and we would like you to be part of it.</p> 
-              <h1><b>Countdown</b></h1>
-              <script>
-                //Countdown Function
-                var today = new Date();
-                var BigDay = new Date("September 26, 2020");
-                var msPerDay = 24 * 60 * 60 * 1000;
-                var timeLeft = (BigDay.getTime() - today.getTime());
-                var e_daysLeft = timeLeft / msPerDay;
-                var daysLeft = Math.floor(e_daysLeft);
-                var yearsLeft = 0;
-
-                  if (daysLeft > 365) {
-                    yearsLeft = Math.floor(daysLeft / 365);
-                    daysLeft = daysLeft % 365;
-                  }
-                  
-                var e_hrsLeft = (e_daysLeft - daysLeft) * 24;
-                var hrsLeft = Math.floor(e_hrsLeft%24);
-                var minsLeft = Math.floor(((e_hrsLeft - hrsLeft) * 60)%60);
-                document.write("<h1><b>" + daysLeft + " days " + hrsLeft + " hours " + minsLeft + " minutes</b></h1>");
-              </script>
+              <h1><b>Countdown</b></h1><h1><b id="countdown"></b></h1>
               <br><hr>
           </div>
         </div>
@@ -209,7 +192,7 @@
             </div>
             
             <div class="row">
-              <div class="col-md-2">
+              <!-- <div class="col-md-2">
                 <a class="picbox" rel="group" href="images/coverpic.JPG">
                   <div class="img-wrap">
                     <div class="overlay">
@@ -218,7 +201,7 @@
                     <img src="images/coverpic.JPG" alt=""/>
                   </div>
                 </a>
-              </div>
+              </div> -->
           
         
                 <div class="col-md-2">
@@ -254,7 +237,7 @@
                       </a>
                     </div>
                  
-                      <div class="col-md-2">
+                      <!-- <div class="col-md-2">
                         <a class="picbox" rel="group" href="images/engpic4.JPG">
                           <div class="img-wrap">
                             <div class="overlay">
@@ -263,7 +246,7 @@
                             <img src="images/engpic4.JPG" alt=""/>
                           </div>
                         </a>
-                      </div>
+                      </div> -->
            
                     
                         <div class="col-md-2">
@@ -332,6 +315,50 @@
                                       </div>
                                     </a>
                                   </div>
+
+                                  <div class="col-md-2">
+                                    <a class="picbox" rel="group" href="images/engpic2020_1.JPG">
+                                      <div class="img-wrap">
+                                        <div class="overlay">
+                                          <i class="fa fa-search"></i>
+                                        </div>
+                                        <img src="images/engpic2020_1.JPG" alt=""/>
+                                      </div>
+                                    </a>
+                                  </div>
+
+                                  <div class="col-md-2">
+                                    <a class="picbox" rel="group" href="images/engpic2020_2.JPG">
+                                      <div class="img-wrap">
+                                        <div class="overlay">
+                                          <i class="fa fa-search"></i>
+                                        </div>
+                                        <img src="images/engpic2020_2.JPG" alt=""/>
+                                      </div>
+                                    </a>
+                                  </div>
+
+                                  <div class="col-md-2">
+                                    <a class="picbox" rel="group" href="images/engpic2020_3.JPG">
+                                      <div class="img-wrap">
+                                        <div class="overlay">
+                                          <i class="fa fa-search"></i>
+                                        </div>
+                                        <img src="images/engpic2020_3.JPG" alt=""/>
+                                      </div>
+                                    </a>
+                                  </div>
+
+                                  <div class="col-md-2">
+                                    <a class="picbox" rel="group" href="images/engpic2020_4.JPG">
+                                      <div class="img-wrap">
+                                        <div class="overlay">
+                                          <i class="fa fa-search"></i>
+                                        </div>
+                                        <img src="images/engpic2020_4.JPG" alt=""/>
+                                      </div>
+                                    </a>
+                                  </div>
           </div>
         </div>
       </section>
@@ -386,10 +413,11 @@
         <section id="hotels" class="section-padding">
           <h1 style="text-align: center;">Hotels Near By</h1>
         </section>
-        <a href="https://www.hardrockhotels.com/sacramento" rel=""><img src="images/hardrockSAC.PNG" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 15px;" class="hardrock" id="hardrock"></a>
+        <a href="https://www.hardrockhotels.com/sacramento" rel=""><img src="images/hardrockSAC.PNG" class="hardrock" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 15px;" id="hardrock"></a>
         	<!-- Google Maps API for the venue -->
         	<div id="map"></div>
-        <style>
+
+          <style>
           .airbnb {
             margin-left: 45px;
           }
@@ -405,11 +433,6 @@
                margin-left: auto;
             }
           }
-          @media (max-width: 750px) {
-            .hardrock {
-                width: 95%;
-              }
-          }
 
           @media (max-width: 498px) {
             .airbnb {
@@ -420,6 +443,12 @@
               width: 100%;
               height: auto;
             }
+          }
+
+   @media (max-width: 750px) {
+            .hardrock {
+                width: 95%;
+              }
           }
         </style>
         <section id="airbnb" class="section-padding">
@@ -452,10 +481,10 @@
         </div>
       <form action="submit.php" method="post" >
             <div class="top"></div>
-                <div class="form content" style="height: 200px; margin: auto">
+                <div class="song content"> <!-- style="width: 400px; height: 200px; margin: auto" -->
                     <div class ="info">
-                        <input type="text" name="song" style="margin-top: 15px;" placeholder="Song Title" required>
-                        <input type="text" name="artist" style="margin-top: -10px;" placeholder="Artist" required>
+                        <input type="text" name="song" class="songInput" style="margin-top: 15px;" placeholder="Song Title" required>
+                        <input type="text" name="artist" class="songInput" placeholder="Artist" required>
                     </div>
                     <div style="text-align: center;width: 100px; margin:0 auto;">
                       <button type="submit" value="submit" name="submit" class="btn-white btn-small" style="width: auto; background-color: #d7d7d7; margin-top: -15px;">Submit</button>
@@ -479,6 +508,5 @@
 <script src="js/scripts.min.js"></script>
 <script type="text/javascript" src="./js/main.js"></script>
 
-</script>
 </body> 
 </html>

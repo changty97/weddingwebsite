@@ -12,8 +12,8 @@ body {
 }
 
 .hero {
-    min-height: 750px;
-    background: url("/weddingsite/images/coverpic.jpg");
+    min-height: 450px;
+    background: url('../images/coverpic.JPG');
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -133,7 +133,8 @@ a {
 }
 
 header a {
-    color: #fff;
+    /* color: #fff; */
+    color: #e8ca6f;
     text-transform: uppercase;
     font-size: 13px;
 }
@@ -178,7 +179,7 @@ header ul.primary-nav {
 }
 
 header ul.primary-nav {
-    margin: 0 0 0 75px;
+    margin: 0 0 0 0;
     padding: 0;
 }
 
@@ -402,7 +403,7 @@ a:-webkit-any-link {
 }
 
 .img-time3 {
-    transform: rotate(90deg);
+    /* transform: rotate(90deg); */
     width: 300px;
     height: auto;
     margin: auto;
@@ -586,7 +587,7 @@ left: 25.4%;
     text-align: center;
     color: black;
     border: 10px solid black;
-    border-image: url('/weddingsite/images/border.png') 30;
+    border-image: url('../images/border.png') 30;
 }
 
 .img-res {
@@ -610,8 +611,6 @@ left: 25.4%;
         left: 23px;
     }
 }
-
-
 
 /* Full-width containers */
 .container {
@@ -689,15 +688,15 @@ border-color: transparent white transparent transparent;
     }
     
     .line {
-      margin: 0px auto 20px 20px;
+      margin: 0px auto 0px 20px;
       color: #999;
     }
     
-    .form input {
+    .nameInput, .songInput {
       font-size: 15px;
       color: #666;
       padding: 6px;
-      margin: 25px auto 20px;
+      margin: -10px auto 20px;
       display: block;
       width: 75%;  
     }
@@ -746,11 +745,18 @@ border-color: transparent white transparent transparent;
         height: 480px;
     }
 
- .footer {
+.song {
+    width: 400px;
+    height: 220px;
+    margin: auto;
+}
+
+.footer {
    left: 0;
    bottom: 0;
    width: 100%;
-   background-color: rgba(27, 27, 27, 0.61); /* rgba(189, 189, 189, 0.61)*/
+   background-color: rgba(27, 27, 27, 0.61); 
    color: white;
    text-align: center;
- }
+}
+

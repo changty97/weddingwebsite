@@ -14,13 +14,24 @@
 
 <?php
 
+//RSVP Attributes
 $name[] = $_POST['name'];
 $guests = $_POST['guests'];
 $accept = $_POST['accept'];
+
+//Song Request Attributes
+$song = $_POST['song'];
+$artist = $_POST['artist'];
+$submit = $_POST['submit'];
+
+//Database Connection variables
 $server = "localhost";
 $user = "root";
 $pass = "";
-$db = "wed";
+$db = "web";
+
+// $username = 'chang.ty97@gmail.com';
+// $password = '$$Panda..5614';
 
 $conn = new mysqli($server, $user, $pass, $db);
 
@@ -35,6 +46,7 @@ if(isset($accept)) {
     foreach($name as $index) {
         $i = implode(", ",$index);
         $sql = "INSERT INTO `accept` (`name`, `guests`) VALUES ('$i','$guests')";
+        $first_person_name = $i;
       }
     
     if($conn->query($sql) === TRUE) {
@@ -43,7 +55,26 @@ if(isset($accept)) {
     else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
+
+    // $headers = "From: " . $first_person_name . "\r\n";
+    // $subject = $first_person_name . " has RSVP'd for Your Wedding!"
+    // $body = $first_person_name . " has RSVP'd for Your Wedding! Please check out the database..."
+    //send email to me
+    // mail($username,$subject,$body,$headers);
 }
+
+elseif(isset($submit)) {
+    echo "<h1 class='text'><b>Thank You!</b></h1><br>";
+    $sql = "INSERT INTO `song_request` (`song`, `artist`) VALUES ('$song','$artist')";
+
+    if($conn->query($sql) === TRUE) {
+        echo "<p class='text'>You Have Submitted a Song!</p>";
+    }
+    else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+}
+
 else {
     echo "<h1 class='text'><b>Thank You!</b></h1><br>";
     foreach($name as $index) {
@@ -58,6 +89,7 @@ else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
 }
+
 
 //Close the connection to the server
 $conn->close();
@@ -97,7 +129,7 @@ $conn->close();
                     <div class="col-sm-12 text-center">
                         <span class="to-top-wrapper"><a href="#top" class="to-top"><i class="fa fa-angle-up"></i></a></span>
                         <p>Developed by Tyler Chang</p>
-                        <small>&copy; Copyright 2019, Changber Corporation</small>
+                        <small>&copy; Copyright 2019, All Rights Reserved</small>
                     </div>
                 </div>
             </div>

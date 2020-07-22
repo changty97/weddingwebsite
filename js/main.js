@@ -37,11 +37,49 @@ function showForm() {
     rsvpForm.style.display = "block";
   }
 }
+
+//Second form function for when user click's on a navbar tab it will close the RSVP form
+function showForm2() {
+  if(rsvpForm.style.display == "block")
+  {
+    rsvpForm.style.display = "none";
+  }
+}
+
+ //Countdown
+ // Set the date we're counting down to
+ var countDownDate = new Date("Sep 26, 2020").getTime();
+
+ // Update the count down every 1 second
+ var x = setInterval(function() {
+
+   // Get today's date and time
+   var now = new Date().getTime();
+     
+   // Find the distance between now and the count down date
+   var distance = countDownDate - now;
+     
+   // Time calculations for days, hours, minutes and seconds
+   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+     
+   // Output the result in an element with id="demo"
+   document.getElementById("countdown").innerHTML = days + " days " + hours + " hrs "
+   + minutes + " mins " + seconds + " sec ";
+     
+   // If the count down is over, write some text 
+   if (distance < 0) {
+     clearInterval(x);
+     document.getElementById("countdown").innerHTML = "EXPIRED";
+   }
+ }, 1000);
                   
 window.onclick = function(event) {
-if (event.target == rsvpForm) {
-  rsvpForm.style.display = "none";
-}
+  if (event.target == rsvpForm) {
+    rsvpForm.style.display = "none";
+  }
 }
 
 var nav = document.getElementById('nav');
@@ -51,7 +89,7 @@ var navicon = document.getElementById('navicon');
 var menuResponsive = document.getElementById('menuResponsive');
 
 window.onscroll = function() {
-if(window.pageYOffset > 650) {
+if(window.pageYOffset > 450) {
   nav.className = "navigation fixed";
   nav.style.backgroundColor = "rgba(129, 129, 129, 0.65)"; //rgba(239, 213, 186, 0.88)
   head.style.borderBottom = "none";
@@ -154,78 +192,118 @@ function arrow6() {
 }
 
 //RSVP Function
+//function that detects the height of the user's screen to change the RSVP form
+function heightAdj(size1){
+  if($(window).height() >= 750) {
+      document.getElementById('form').style.height = size1; 
+    }
+    else {
+      document.getElementById('form').style.height = '450px'; 
+    }
+}
+
+//Auto Dectect Height of the user's screen when the window is resized by user
+$(window).resize(function() {
+  var accept_decline_btn = `<button type="submit" value="submit" id="accept" name="accept" class="accept">Accept</button>
+  <button type="submit" value="submit" id="decline" name="decline" class="decline">Decline</button>`;
+  if($(window).height() >= 750) {
+    document.getElementById('buttons2').innerHTML = accept_decline_btn;
+    document.getElementById('buttons1').innerHTML = '';
+    document.getElementById('accept').style.marginTop = '';
+    document.getElementById('decline').style.marginTop = '';
+    document.getElementById('form').style.height = '590px';
+    document.getElementById('line2').style.marginTop = '';
+    document.getElementById('line2').style.marginBottom = '';
+  }
+  else {
+    document.getElementById('buttons1').innerHTML = accept_decline_btn;
+    document.getElementById('buttons1').style.marginLeft = '-10px';
+    document.getElementById('buttons2').innerHTML = '';
+    document.getElementById('accept').style.marginTop = '-47px';
+    document.getElementById('decline').style.marginTop = '-47px';
+    document.getElementById('form').style.height = '450px';
+    document.getElementById('line2').style.marginTop = '-3px';
+    document.getElementById('line2').style.marginBottom = '20px';
+    if($(window).width() <= 650) {
+      console.log($(window).width());
+      document.getElementById('buttons2').innerHTML = accept_decline_btn;
+      document.getElementById('buttons1').innerHTML = '';
+      document.getElementById('accept').style.marginTop = '';
+      document.getElementById('decline').style.marginTop = '';
+      document.getElementById('form').style.height = '590px';
+      document.getElementById('line2').style.marginTop = '';
+      document.getElementById('line2').style.marginBottom = '';
+    }
+  }
+});
+
+//Auto Dectect Height of the user's screen when user first enter's site
+$(window).height(function (){
+  var accept_decline_btn = `<button type="submit" value="submit" id="accept" name="accept" class="accept">Accept</button>
+  <button type="submit" value="submit" id="decline" name="decline" class="decline">Decline</button>`;
+  if($(window).height() >= 750) {
+        document.getElementById('buttons2').innerHTML = accept_decline_btn;
+        document.getElementById('buttons1').innerHTML = '';
+        document.getElementById('accept').style.marginTop = '';
+        document.getElementById('decline').style.marginTop = '';
+        document.getElementById('form').style.height = '590px';
+        document.getElementById('line2').style.marginTop = '';
+        document.getElementById('line2').style.marginBottom = '';
+      }
+      else {
+        document.getElementById('buttons1').innerHTML = accept_decline_btn;
+        document.getElementById('buttons1').style.marginLeft = '-10px';
+        document.getElementById('buttons2').innerHTML = '';
+        document.getElementById('accept').style.marginTop = '-47px';
+        document.getElementById('decline').style.marginTop = '-47px';
+        document.getElementById('form').style.height = '450px';
+        document.getElementById('line2').style.marginTop = '-3px';
+        document.getElementById('line2').style.marginBottom = '20px';
+        if($(window).width() <= 650) {
+          console.log($(window).width());
+          document.getElementById('buttons2').innerHTML = accept_decline_btn;
+          document.getElementById('buttons1').innerHTML = '';
+          document.getElementById('accept').style.marginTop = '';
+          document.getElementById('decline').style.marginTop = '';
+          document.getElementById('form').style.height = '590px';
+          document.getElementById('line2').style.marginTop = '';
+          document.getElementById('line2').style.marginBottom = '';
+        }
+      }
+});
+
 function addGuest() {
   var guestCount = document.getElementById('guests'); 
   var add = document.getElementById('guestNames');
-  var form = document.getElementById('form');
-  var buttons = document.getElementById('buttons');
+  var form = document.getElementById('form'); 
+  var bottom = 'unset';
+  var name_last = `<input type="text" name="name[]" placeholder="First and Last Name" style="margin-bottom: ` + bottom + `" "margin-bottom: unset" class="nameInput" pattern="^(?:((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-.\s])){1,}(['’,\-\.]){0,1}){2,}(([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-. ]))*(([ ]+){0,1}(((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){1,})(['’\-,\.]){0,1}){2,}((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){2,})?)*)$" required>`;
+  var name = `<input type="text" name="name[]" placeholder="First and Last Name" class="nameInput" pattern="^(?:((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-.\s])){1,}(['’,\-\.]){0,1}){2,}(([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-. ]))*(([ ]+){0,1}(((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){1,})(['’\-,\.]){0,1}){2,}((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){2,})?)*)$" required>`;
   
   if(guestCount.value == 2)
   {
-    add.innerHTML = `<input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: -10px; margin-bottom: -10px" pattern="^(?:((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-.\s])){1,}(['’,\-\.]){0,1}){2,}(([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-. ]))*(([ ]+){0,1}(((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){1,})(['’\-,\.]){0,1}){2,}((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){2,})?)*)$" required>`;
-    if(document.body.clientHeight >= 650)
-      {
-        form.style.height = '600px';
-        buttons.style.marginTop = '10px';
-      }
-    $(window).resize(function() {
-      if(document.body.clientHeight < 650) {
-        form.style.height = '450px';
-        // buttons.style.marginTop = '80px';
-      }
-      else {
-        form.style.height = '600px';
-      }
-    });
-   
+    add.innerHTML = name_last;
+    heightAdj('590px');
   }
   else if(guestCount.value == 3)
   {
-    add.innerHTML = `<input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: -10px; margin-bottom: -10px" pattern="^(?:((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-.\s])){1,}(['’,\-\.]){0,1}){2,}(([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-. ]))*(([ ]+){0,1}(((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){1,})(['’\-,\.]){0,1}){2,}((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){2,})?)*)$" required><input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" pattern="^(?:((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-.\s])){1,}(['’,\-\.]){0,1}){2,}(([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-. ]))*(([ ]+){0,1}(((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){1,})(['’\-,\.]){0,1}){2,}((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){2,})?)*)$" required>`;
-    if(document.body.clientHeight >= 650)
-      {
-        form.style.height = '700px';
-        buttons.style.marginTop = '25px';
-      }
-
-    $(window).resize(function() {
-      if(document.body.clientHeight < 650)
-      {
-        form.style.height = '450px';
-        // buttons.style.marginTop = '25px';
-      }
-      else {
-        form.style.height = '700px';
-      }
-    });
+    add.innerHTML = name + name_last;//`<input type="text" name="name[]" placeholder="First and Last Name" class="nameInput" pattern="^(?:((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-.\s])){1,}(['’,\-\.]){0,1}){2,}(([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-. ]))*(([ ]+){0,1}(((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){1,})(['’\-,\.]){0,1}){2,}((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){2,})?)*)$" required>`;
+    heightAdj('650px');
   }
   else if(guestCount.value == 4)
   {
-    add.innerHTML = `<input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: -10px; margin-bottom: -10px" pattern="^(?:((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-.\s])){1,}(['’,\-\.]){0,1}){2,}(([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-. ]))*(([ ]+){0,1}(((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){1,})(['’\-,\.]){0,1}){2,}((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){2,})?)*)$" required><input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" pattern="^(?:((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-.\s])){1,}(['’,\-\.]){0,1}){2,}(([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-. ]))*(([ ]+){0,1}(((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){1,})(['’\-,\.]){0,1}){2,}((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){2,})?)*)$" required><input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" pattern="^(?:((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-.\s])){1,}(['’,\-\.]){0,1}){2,}(([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-. ]))*(([ ]+){0,1}(((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){1,})(['’\-,\.]){0,1}){2,}((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){2,})?)*)$" required>`;
-    $(window).resize(function() {
-      if(document.body.clientHeight >= 650)
-      {
-        form.style.height = '700px';
-        buttons.style.marginTop = '10px';
-      }
-    });
+    add.innerHTML = name + name + name_last;//`<input type="text" name="name[]" placeholder="First and Last Name" class="nameInput" pattern="^(?:((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-.\s])){1,}(['’,\-\.]){0,1}){2,}(([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-. ]))*(([ ]+){0,1}(((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){1,})(['’\-,\.]){0,1}){2,}((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){2,})?)*)$" required><input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" pattern="^(?:((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-.\s])){1,}(['’,\-\.]){0,1}){2,}(([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-. ]))*(([ ]+){0,1}(((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){1,})(['’\-,\.]){0,1}){2,}((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){2,})?)*)$" required><input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" pattern="^(?:((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-.\s])){1,}(['’,\-\.]){0,1}){2,}(([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-. ]))*(([ ]+){0,1}(((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){1,})(['’\-,\.]){0,1}){2,}((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){2,})?)*)$" required>`;
+    heightAdj('700px');
   }
   else if(guestCount.value == 5)
   {
-    add.innerHTML = `<input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: -10px; margin-bottom: -10px" pattern="^(?:((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-.\s])){1,}(['’,\-\.]){0,1}){2,}(([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-. ]))*(([ ]+){0,1}(((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){1,})(['’\-,\.]){0,1}){2,}((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){2,})?)*)$" required><input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" pattern="^(?:((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-.\s])){1,}(['’,\-\.]){0,1}){2,}(([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-. ]))*(([ ]+){0,1}(((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){1,})(['’\-,\.]){0,1}){2,}((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){2,})?)*)$" required><input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" required><input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" pattern="^(?:((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-.\s])){1,}(['’,\-\.]){0,1}){2,}(([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-. ]))*(([ ]+){0,1}(((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){1,})(['’\-,\.]){0,1}){2,}((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){2,})?)*)$" required>`;
-    $(window).resize(function() {
-      if(document.body.clientHeight >= 650)
-      {
-        form.style.height = '750px';
-        buttons.style.marginTop = '10px';
-      }
-    });
+    add.innerHTML = name + name + name + name_last;//`<input type="text" name="name[]" placeholder="First and Last Name" class="nameInput" pattern="^(?:((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-.\s])){1,}(['’,\-\.]){0,1}){2,}(([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-. ]))*(([ ]+){0,1}(((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){1,})(['’\-,\.]){0,1}){2,}((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){2,})?)*)$" required><input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" pattern="^(?:((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-.\s])){1,}(['’,\-\.]){0,1}){2,}(([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-. ]))*(([ ]+){0,1}(((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){1,})(['’\-,\.]){0,1}){2,}((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){2,})?)*)$" required><input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" required><input type="text" name="name[]" placeholder="First and Last Name" style="margin-top: 20px; margin-bottom: -10px" pattern="^(?:((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-.\s])){1,}(['’,\-\.]){0,1}){2,}(([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-. ]))*(([ ]+){0,1}(((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){1,})(['’\-,\.]){0,1}){2,}((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){2,})?)*)$" required>`;
+    heightAdj('730px');
   }
   else
   {
     add.innerHTML = '';
     form.style.height = '';
-    buttons.style.marginTop = '';
   }
 }
 
@@ -326,7 +404,7 @@ function addGuest() {
           '<b>Website:</b><a href="' + hotel_website[i] + '">' + hotel_website[i] + '</a><br>' +
           '</div>'+
           '</div>';
-          console.log(contentString);
+          // console.log(contentString);
           var marker = new google.maps.Marker({
           position: features[i].position,
           type: features[i].type,
