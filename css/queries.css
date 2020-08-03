@@ -79,7 +79,7 @@ nav ul.primary-nav li, nav ul.member-actions li {
 @media screen and (max-width: 991px) {
     .header-nav {
         position: fixed;
-        background-color: #000;
+        background-color: #d0c7c7;/* #000; */
         width: 100%;
         height: 100%;
         top: 0;
@@ -93,7 +93,7 @@ nav ul.primary-nav li, nav ul.member-actions li {
 }
 
 /* Responsiveness for screen height for form */
-@media screen and (max-height: 701px) {
+@media screen and (max-height: 730px) and (min-width: 650px) {
     .form {
         height: 450px;
         width: 750px;
@@ -140,7 +140,7 @@ nav ul.primary-nav li, nav ul.member-actions li {
 
     .header-nav {
         position: fixed;
-        background-color: #000;
+        background-color: #d0c7c7;/* #000; */
         width: 100%;
         height: 100%;
         top: 0;
@@ -371,7 +371,7 @@ nav ul.primary-nav li, nav ul.member-actions li {
         padding-top: 100%;
     }
 
-    .song {
+    .song, .registry {
         width: 100%;
     }
 

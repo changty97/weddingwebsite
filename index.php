@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="user-scalable=1.0, width=device-width, initial-scale=1.0" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <title>Our Happliy Ever After!</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -74,6 +77,7 @@
                       <li><a href="#eng-pics" onclick="showForm2()" style="text-decoration: none;">Engagment</a></li>
                       <li><a href="#venue" onclick="showForm2()" style="text-decoration: none;">Venue</a></li>
                       <li><a href="#hotels" onclick="showForm2()" style="text-decoration: none;">Hotels & Airbnb's</a></li>
+                      <li><a href="#registry" onclick="showForm2()" style="text-decoration: none;">Registry</a></li>
                   </ul>
                   <!-- RSVP Button -->
                   <ul id="rsvp" onclick="showForm()" class="member-actions" style="top: 35px;">
@@ -101,10 +105,10 @@
                     </div>
                     <div id="buttons2">
                       <button type="submit" value="submit" id="accept" name="accept" class="accept">Accept</button>
-                      <button type="submit" value="submit" id="decline" name="decline" class="decline">Decline</button>
+                      <!-- <button type="submit" value="submit" id="decline" name="decline" class="decline">Decline</button> -->
                     </div>
                 </div>
-          </form>
+          </form>          
 
           <div class="navicon" id="navicon" style="top: 35px;">
               <a id="menu" onclick="menu()" class="nav-toggle"><span id="menuResponsive"></span></a>
@@ -436,7 +440,7 @@
 
           @media (max-width: 498px) {
             .airbnb {
-               margin-left: 25px;
+               padding-left: 25px;
             }
 
           .airbnb-frame {
@@ -469,6 +473,24 @@
                 </div>
               </div>
             </div>
+        </section>
+
+        <section id="registry" class="section-padding">
+        <div class="container-invite">
+          <div class="row">
+            <div class="col-md-12 text-center">
+                <h1>Registry</h1>
+            </div>
+          </div>
+        </div>
+        <form action="submit.php" method="post" >
+            <div class="top"></div>
+                <div class="registry content"> <!-- style="width: 400px; height: 200px; margin: auto" -->
+                    <div class ="info">
+                      <p>We do not have a wedding registry. As many of you already know, we currently live together and have too much stuff as it is. However we are trying to save for a down payment on a house. Any contributions would be greatly appericated!</p>
+                    </div>
+                </div>
+          </form>
         </section>
 
          <section id="song" class="section-padding">
