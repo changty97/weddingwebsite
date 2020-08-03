@@ -204,13 +204,14 @@ function heightAdj(size1){
 
 //Auto Dectect Height of the user's screen when the window is resized by user
 $(window).resize(function() {
-  var accept_decline_btn = `<button type="submit" value="submit" id="accept" name="accept" class="accept">Accept</button>
-  <button type="submit" value="submit" id="decline" name="decline" class="decline">Decline</button>`;
+  var accept_decline_btn = `<button type="submit" value="submit" id="accept" name="accept" class="accept">Accept</button>`;
   if($(window).height() >= 750) {
     document.getElementById('buttons2').innerHTML = accept_decline_btn;
     document.getElementById('buttons1').innerHTML = '';
     document.getElementById('accept').style.marginTop = '';
-    document.getElementById('decline').style.marginTop = '';
+    console.log("resize 1..");
+    document.getElementById('accept').style.width = '100%';
+    // document.getElementById('decline').style.marginTop = '';
     document.getElementById('form').style.height = '590px';
     document.getElementById('line2').style.marginTop = '';
     document.getElementById('line2').style.marginBottom = '';
@@ -220,16 +221,19 @@ $(window).resize(function() {
     document.getElementById('buttons1').style.marginLeft = '-10px';
     document.getElementById('buttons2').innerHTML = '';
     document.getElementById('accept').style.marginTop = '-47px';
-    document.getElementById('decline').style.marginTop = '-47px';
+    console.log("resize 2..");
+    document.getElementById('accept').style.width = '390px';
+    // document.getElementById('decline').style.marginTop = '-47px';
     document.getElementById('form').style.height = '450px';
     document.getElementById('line2').style.marginTop = '-3px';
     document.getElementById('line2').style.marginBottom = '20px';
     if($(window).width() <= 650) {
-      console.log($(window).width());
       document.getElementById('buttons2').innerHTML = accept_decline_btn;
       document.getElementById('buttons1').innerHTML = '';
       document.getElementById('accept').style.marginTop = '';
-      document.getElementById('decline').style.marginTop = '';
+      console.log("resize 3..");
+      document.getElementById('accept').style.width = '400px';
+      // document.getElementById('decline').style.marginTop = '';
       document.getElementById('form').style.height = '590px';
       document.getElementById('line2').style.marginTop = '';
       document.getElementById('line2').style.marginBottom = '';
@@ -239,13 +243,13 @@ $(window).resize(function() {
 
 //Auto Dectect Height of the user's screen when user first enter's site
 $(window).height(function (){
-  var accept_decline_btn = `<button type="submit" value="submit" id="accept" name="accept" class="accept">Accept</button>
-  <button type="submit" value="submit" id="decline" name="decline" class="decline">Decline</button>`;
+  var accept_decline_btn = `<button type="submit" value="submit" id="accept" name="accept" class="accept">Accept</button>`;
   if($(window).height() >= 750) {
         document.getElementById('buttons2').innerHTML = accept_decline_btn;
         document.getElementById('buttons1').innerHTML = '';
         document.getElementById('accept').style.marginTop = '';
-        document.getElementById('decline').style.marginTop = '';
+        document.getElementById('accept').style.width = '100%';
+        // document.getElementById('decline').style.marginTop = '';
         document.getElementById('form').style.height = '590px';
         document.getElementById('line2').style.marginTop = '';
         document.getElementById('line2').style.marginBottom = '';
@@ -255,16 +259,19 @@ $(window).height(function (){
         document.getElementById('buttons1').style.marginLeft = '-10px';
         document.getElementById('buttons2').innerHTML = '';
         document.getElementById('accept').style.marginTop = '-47px';
-        document.getElementById('decline').style.marginTop = '-47px';
+        console.log("height 2..");
+        document.getElementById('accept').style.width = '390px';
+        // document.getElementById('decline').style.marginTop = '-47px';
         document.getElementById('form').style.height = '450px';
         document.getElementById('line2').style.marginTop = '-3px';
         document.getElementById('line2').style.marginBottom = '20px';
         if($(window).width() <= 650) {
-          console.log($(window).width());
           document.getElementById('buttons2').innerHTML = accept_decline_btn;
           document.getElementById('buttons1').innerHTML = '';
           document.getElementById('accept').style.marginTop = '';
-          document.getElementById('decline').style.marginTop = '';
+          console.log("height 3..");
+          document.getElementById('accept').style.width = '400px';
+          // document.getElementById('decline').style.marginTop = '';
           document.getElementById('form').style.height = '590px';
           document.getElementById('line2').style.marginTop = '';
           document.getElementById('line2').style.marginBottom = '';

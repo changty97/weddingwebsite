@@ -47,7 +47,7 @@ body {
     -moz-border-radius:1px;
     -webkit-border-radius:1px;
     border-radius:1px;
-    background:#fff;
+    background:#000; /*#fff;*/
     cursor:pointer
 }
 
@@ -136,7 +136,7 @@ header a {
     /* color: #fff; */
     color: #e8ca6f;
     text-transform: uppercase;
-    font-size: 13px;
+    font-size: 15px;
 }
 
 a:hover, a:focus {
@@ -164,7 +164,7 @@ header .header-content {
 }
 
 header ul.primary-nav li a {
-    color: #fff;
+    color: #000;/*#fff;*/
     padding-right: 25px;
 }
 
@@ -187,10 +187,6 @@ header ul.primary-nav li {
     display: inline;
 }
 
-header ul.primary-nav li a{
-    color: #fff;
-    padding-right: 25px; 
-}
 
 header ul.primary-nav li a:hover {
     color: #e8ca6f;
@@ -222,10 +218,6 @@ ul, ol {
     padding: 0;
 }
 
-header ul.member-actions li a {
-    color: #fff;
-}
-
 .btn-small {
     padding: 8px 30px;
 }
@@ -236,7 +228,7 @@ header ul.member-actions li a {
     -moz-border-radius: 40px;
     border-radius: 40px;
     display: inline-block;
-    border-color: #fff;
+    border-color: #000;
 }
 
 .btn-white:hover {
@@ -248,7 +240,7 @@ header ul.member-actions li {
 }
 
 header ul.member-actions li a {
-    color: #fff;
+    color: #000;
 }
 
 header ul.member-actions li a:hover {
@@ -723,7 +715,7 @@ border-color: transparent white transparent transparent;
     }
     
     button.accept {
-      border-radius: 0px 0px 0px 10px;
+      border-radius: 0px 0px 10px 10px;
       border-right: solid 1px #cc919a;
     }
     
@@ -748,6 +740,11 @@ border-color: transparent white transparent transparent;
 .song {
     width: 400px;
     height: 220px;
+    margin: auto;
+}
+
+.registry {
+    width: 800px;
     margin: auto;
 }
 
