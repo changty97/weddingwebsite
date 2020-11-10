@@ -130,17 +130,20 @@
         </div>
       </div>
     </section>
+
     <section id="timeline" class="section-padding">
         <div class="container-invite">
           <div class="row">
             <div class="col-md-12 text-center">
-                <h1>Our Journey</h1>
+            <h1>Our Journey</h1>
+            <i class="fa fa-angle-down arrowdown" style="font-size: 50px"></i><br>
             </div>
           </div>
         </div>
       </section>
+      <!-- <button type=button class="test">click</button><br><br><br><br><br><br> -->
         <!-- <h1>How it Started!</h1> -->
-        <section>
+        <section id="timeline1">
               <div class="timeline">
                 <div class="container left conatiner-outside">
                   <div class="content">
@@ -186,6 +189,24 @@
                 </div>
               </div>
         </section>
+        <script>
+         var coll = document.getElementsByClassName("arrowdown");
+          var i;
+
+          var content = document.getElementById("timeline1");
+              content.style.display = "none";
+
+          for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+              if (content.style.display == "block") {
+                content.style.display = "none";
+              } else {
+                content.style.display = "block";
+              }
+            });
+          }
+        </script>
+
         <br><br><br>
         <section id="eng-pics" class="section-padding">
           <div class="container-fluid">
@@ -196,6 +217,19 @@
             </div>
             
             <div class="row">
+
+            <div class="row">
+              <div class="col-md-2">
+                <a class="picbox" rel="group" href="images/wedding_welcome_sign.JPG">
+                  <div class="img-wrap">
+                    <div class="overlay">
+                      <i class="fa fa-search"></i>
+                    </div>
+                    <img src="images/wedding_welcome_sign.JPG" alt=""/>
+                  </div>
+                </a>
+              </div>
+
               <!-- <div class="col-md-2">
                 <a class="picbox" rel="group" href="images/coverpic.JPG">
                   <div class="img-wrap">
