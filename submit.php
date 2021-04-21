@@ -30,9 +30,6 @@ $user = "root";
 $pass = "";
 $db = "web";
 
-// $username = 'chang.ty97@gmail.com';
-// $password = '$$Panda..5614';
-
 $conn = new mysqli($server, $user, $pass, $db);
 
 //Make a connection to the server
